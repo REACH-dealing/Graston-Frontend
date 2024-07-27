@@ -1,0 +1,17 @@
+:root {
+  --color: black;
+  --font-familyCairo: 'Cairo', sans-serif;
+  --font-familyRoboto: 'Roboto', sans-serif;
+}
+.CommonButton{
+  background-color: #2F9C95;
+  padding: 10px;
+  border: none;
+  font-weight:bold;
+  font-family: var(--font-familyRoboto);
+  border-radius: 3px;
+  margin-top: 30px;
+}
+.CommonButton:hover{
+  background-color: #2F9C95;
+}

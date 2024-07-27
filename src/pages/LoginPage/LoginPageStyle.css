@@ -1,0 +1,78 @@
+:root {
+  --color: black;
+  --font-familyCairo: 'Cairo', sans-serif;
+  --font-familyRoboto: 'Roboto', sans-serif;
+  --font-familyNotoNastaliqUrdu:Noto Nastaliq Urdu
+}
+.container{
+  margin-top: 130px;
+}
+.loginPageContainer{
+  display: flex;
+  max-width: 75%;
+  margin: auto;
+  height: 550px;
+  /* margin-top: 130px; */
+  font-family: var(--font-familyRoboto);
+}
+.container h1:first-child{
+  color: #323232;
+}
+h5 {
+  overflow: hidden;
+  text-align: center;
+}
+
+h5::before,
+h5::after {
+  background-color: lightgray;
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+}
+
+h5::before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+
+h5::after {
+  left: 0.5em;
+  margin-right: -50%;
+}
+.container h3{
+  font-family:Aref Ruqaa;
+  color: #2F9C95;
+  font-size: 60px;
+}
+
+.DivBtn button{
+  width: 100%;
+}
+.loginPageContainer__item1{
+  width: 80%;
+  padding: 50px;
+}
+.loginPageContainer__item2{
+  width: 30%;
+  color: #fff;
+  background-color: #2F9C95;
+}
+.emailFiled ,.passwordFiled{
+  padding: 10px;
+  border: none;
+  box-shadow: 2px 2px 2px 2px lightgray;
+}
+.emailFiled ,.passwordFiled:focus{
+  outline: none;
+}
+.container a{
+  text-decoration: none;
+  color: #2F9C95;
+  font-weight: bold;
+}
+.googleBtn{}
+.facebookBtn{}
