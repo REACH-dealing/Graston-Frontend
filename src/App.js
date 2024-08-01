@@ -12,33 +12,33 @@ import VerifayPhone from "./pages/ForgotPassword/VerifayPhone";
 import VerifayEmail from "./pages/ForgotPassword/VerifayEmail";
 import CreateNewPassword from "./pages/RestPassword/CreateNewPassword";
 import RestPassword from "./pages/RestPassword/RestPassword";
-// import { Provider } from 'react-redux';
-// import store from "app/store"
+import { Provider } from "react-redux";
+import store from "./app/store";
 function App() {
   return (
-    <div className="">
-      <Navbar />
-      {/* <Provider store={store}> */}
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/LoginPage" element={<LoginPage />} />
-          <Route path="/RegisterPage" element={<RegisterPage />} />
-          <Route path="/RegisterAsPatient" element={<RegisterAsPatient />} />
-          <Route path="/RegisterAsDoctor" element={<RegisterAsDoctor />} />
-          <Route path="/ForgotPassword" element={<ForgotPassword />} />
-          <Route
-            path="/ForgotPasswordEmail"
-            element={<ForgotPasswordEmail />}
-          />
-          <Route path="/VerifayEmail" element={<VerifayEmail />} />
-          <Route path="/VerifayPhone" element={<VerifayPhone />} />
-          <Route path="/CreateNewPassword" element={<CreateNewPassword />} />
-          <Route path="/RestPassword" element={<RestPassword />} />
-        </Routes>
-      </BrowserRouter>
-      {/* </Provider> */}
-    </div>
+    <Provider store={store}>
+      <div className="">
+        <Navbar />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/LoginPage" element={<LoginPage />} />
+            <Route path="/RegisterPage" element={<RegisterPage />} />
+            <Route path="/RegisterAsPatient" element={<RegisterAsPatient />} />
+            <Route path="/RegisterAsDoctor" element={<RegisterAsDoctor />} />
+            <Route path="/ForgotPassword" element={<ForgotPassword />} />
+            <Route
+              path="/ForgotPasswordEmail"
+              element={<ForgotPasswordEmail />}
+            />
+            <Route path="/VerifayEmail" element={<VerifayEmail />} />
+            <Route path="/VerifayPhone" element={<VerifayPhone />} />
+            <Route path="/CreateNewPassword" element={<CreateNewPassword />} />
+            <Route path="/RestPassword" element={<RestPassword />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </Provider>
   );
 }
 
