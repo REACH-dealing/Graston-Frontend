@@ -1,0 +1,122 @@
+:root {
+    --color: black;
+    --font-familyCairo: 'Cairo', sans-serif;
+    --font-familyRoboto: 'Roboto', sans-serif;
+    --font-familyNotoNastaliqUrdu:Noto Nastaliq Urdu
+  }
+  
+/* rest password*/
+  .RestPasswordContainer__h5 ,.restPasswordContainer__items__h5{
+    color: #2F9C95;
+    font-family: var(--font-familyRoboto);
+  }
+  .RestPasswordContainer__P ,.restPasswordContainer__items__p{
+    color: #2F9C95;
+    font-family: var(--font-familyRoboto);
+  }
+  .restPasswordContainer__items__p{
+    width: 350px;
+  }
+  .RestPasswordContainer__items{
+    background-color: #fff;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 40%;
+    margin: auto;
+    padding: 50px 0px 50px 0px;
+    font-family: var(--font-familyRoboto);
+  }
+  .RestPasswordForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .RestPasswordForm__input ,.restPassword{
+    border: none;
+    padding: 12px 25px 12px 25px;
+    box-shadow: 1px 1px 1px 1px lightgray;
+    border-radius: 5px;
+    width: 500px;
+    background: url("/public/assets/Vector.png") no-repeat right;
+    background-size: 20px;
+    background-position-x: 450px;
+  }
+  .RestPasswordForm__input:focus{
+    outline: none;
+  }
+  .restPassword:focus{
+    outline: none;
+  }
+  .saveInfo button{
+    width: 500px;
+  }
+  /* rest password */
+  .restPasswordContainer__items{
+    background-color: #fff;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 40%;
+    margin: auto;
+    padding: 50px 0px 50px 0px;
+    font-family: var(--font-familyRoboto);
+  }
+  
+
+/* media query *
+/* Mobile : 375px => 768px */
+@media screen and (min-width:100px) and (max-width:375px) {
+/* rest password*/
+  .RestPasswordContainer__items{
+    border-radius: 20px;
+    max-width:90%;
+  }
+  .RestPasswordForm__input ,.restPassword{
+    width: 320px;
+    background-position-x: 290px;
+  }
+  .saveInfo button{
+    width: 320px;
+  }
+
+}
+@media screen and (min-width:375px) and (max-width:767px) {
+    .RestPasswordContainer__items{
+        border-radius: 20px;
+        max-width:90%;
+      }
+      .RestPasswordForm__input,.restPassword{
+        width: 320px;
+        background-position-x: 290px;
+      }
+      .saveInfo button{
+        width: 320px;
+      }
+}
+/* tablet : 768px => 1024px */
+@media screen and (min-width:768px) and (max-width:1024px) {
+    .RestPasswordContainer__items{
+        border-radius: 20px;
+        max-width:90%;
+      }
+      .RestPasswordForm__input{
+        width: 500px;
+        background-position-x: 450px;
+      }
+      .saveInfo button{
+        width: 500px;
+      }
+}
+/* laptop : 1024px => 1440px */
+@media screen and (min-width:1024px) and (max-width:1440px){
+    .RestPasswordContainer__items{
+        border-radius: 20px;
+        max-width:50%;
+      }
+}

@@ -1,0 +1,61 @@
+:root {
+  --color: black;
+  --font-familyCairo: 'Cairo', sans-serif;
+  --font-familyRoboto: 'Roboto', sans-serif;
+  --font-familyNotoNastaliqUrdu:Noto Nastaliq Urdu
+}
+/* NavBar style */
+.nav{
+  background-color: #fff;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  box-shadow: 2px 2px 2px 2px lightgray;
+  display: flex;
+  /* justify-content: space-between; */
+}
+.navbar{
+  width: 90%;
+  margin: auto;
+}
+.navbar-brand{
+  font-family:Aref Ruqaa;
+  color: #2F9C95;
+  font-weight:bold;
+  font-size: 30px;
+}
+.navbar-brand:hover{
+  color: #2F9C95;
+}
+
+/* introSection style */
+.introSection{
+  max-width: 90%;
+  margin: auto;
+  margin-top: 130px;
+  display: flex;
+}
+.introSection__item1 p:first-child{
+  color: #2F9C95;
+  font-weight:bold;
+  font-family: var(--font-familyRoboto);
+}
+.introSection__item1 h1{
+  font-weight: bold;
+  color: #323232;
+  font-family: var(--font-familyRoboto);
+}
+.introSection__item1 h1 + p:nth-of-type(2) {
+  color: #323232;
+  font-family: var(--font-familyRoboto);
+}
+.introSection__item2 div{
+  background-color:#2F9C95;
+  width: 212px;
+  height: 210px;
+}
+.btnDiv button{
+  width: 150px;
+}
+
+/*  */
