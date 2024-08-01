@@ -2,14 +2,14 @@ import React from 'react';
 import "./style.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'react-bootstrap';
-function CommenButton({text}) {
+function MintButton({text}) {
   return (
     <div>
-      <Button className='CommonButton'>
+      <Button className='MintButton'>
         {text}
       </Button>
     </div>
   )
 }
 
-export default CommenButton;
+export default MintButton;

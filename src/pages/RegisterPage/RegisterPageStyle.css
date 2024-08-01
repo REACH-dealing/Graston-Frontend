@@ -1,0 +1,345 @@
+:root {
+  --color: black;
+  --font-familyCairo: "Cairo", sans-serif;
+  --font-familyRoboto: "Roboto", sans-serif;
+  --font-familyNotoNastaliqUrdu: Noto Nastaliq Urdu;
+}
+/* register style */
+.registetrPageContainer {
+  display: flex;
+  max-width: 100%;
+  margin: auto;
+  height: 1024px;
+  font-family: var(--font-familyRoboto);
+}
+.containers h3 {
+  font-family: Aref Ruqaa;
+  color: #2f9c95;
+  font-size: 60px;
+}
+.registetrPageContainer__item1 p{
+  color: #FFFFFF;
+  width:70%;
+  line-height: 40px;
+}
+/* .DivBtn button {
+  width: 100%;
+  border: none;
+  box-shadow: 2px 2px 2px 2px lightgray;
+  border-radius: 5px;
+  padding: 10px;
+} */
+.registerPageContainer__item2{
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 470px;
+  margin: 200px 0px 0px 200px;
+  width: 635px;
+  justify-self: center;
+  font-family: var(--font-familyRoboto); 
+}
+.registetrPageContainer__item1 {
+  width: 530px;
+  color: #fff;
+  background-image: linear-gradient(200.5deg,#2F9C95,#103634 );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.loginBtn button{
+  width: 390px;
+  font-weight: bolder;
+  padding: 15px;
+}
+.contunueBtn button{
+  width: 390px;
+  padding: 15px;
+}
+.registerBtn {
+  border: none;
+  background-color: #fff;
+  border-radius: 2px;
+  padding: 10px;
+  color: #2f9c95;
+  width: 200px;
+}
+.registerBtn:hover {
+  background-color: #fff;
+  color: #2f9c95;
+}
+.registetrPageContainer__item1 p {
+  color: #d5d5d5;
+  width: 55%;
+  text-align: center;
+  font-family: var(--font-familyRoboto);
+}
+.patient {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 10px;
+  width: 150px;
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  position: relative;
+}
+.patient-img {
+  width: 100px;
+  position: absolute;
+  z-index: 1;
+  bottom: 60px;
+  left: 25px;
+}
+.physiotherapist-img {
+  width: 100px;
+  position: absolute;
+  z-index: 1;
+  bottom: 60px;
+  left: 25px;
+}
+.physiotherapist {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 10px;
+  width: 150px;
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  position: relative;
+}
+
+/* end of register style */
+
+/* registerAsPatient */
+.cityItem{
+  margin-left: 10px;
+}
+.registerAsPatient{
+  padding: 120px 0px 100px 0px ;
+  max-width: 25%;
+  margin: auto;
+  font-family: var(--font-familyRoboto);
+}
+
+.registerAsPatient h2{
+  font-family:Aref Ruqaa;
+  color: #2F9C95;
+  font-size: 40px;
+}
+.registetrPageContainer [type="radio"] {
+  transform: scale(2);
+  position: absolute;
+  z-index: 1;
+  top: 103px;
+  left: 67px;
+}
+.EnterNameItems{
+  display: flex;
+}
+
+ input::placeholder{
+  font-size: 12px;
+ }
+ label{
+  font-size: 14px;
+ }
+.registerBtn button{
+  width: 100%;
+}
+.registerAsPatient [type="text"] ,.email , .password , .nationality,.country ,.city {
+  padding: 10px;
+  border: none;
+  box-shadow: 2px 2px 2px 2px lightgray;
+}
+span{
+  color: #2F9C95;
+  text-decoration: underline;
+}
+.email , .password , .nationality{
+  width: 390px;
+}
+.RegisterBtn button{
+  /* width: 100%; */
+  width: 390px;
+}
+.nameInput{
+  width: 185px;
+}
+.registerAsPatient input:focus{
+  outline: none;
+}
+.phone {
+  padding: 10px;
+  border: none;
+  box-shadow: 2px 2px 2px 2px lightgray;
+  width: 295px;
+}
+.Diseases,.certificates{
+  padding: 10px;
+  border: none;
+  box-shadow: 2px 2px 2px 2px lightgray;
+  width: 295px;
+}
+.addDiseaes{
+  padding:10px;
+  border: none;
+  box-shadow: 2px 2px 2px 2px lightgray;
+  width: 80px;
+  margin-top:85px;
+}
+.country ,.city{
+  width:185px;
+}
+.registerAsPatient [type="radio"]{
+  transform: scale(2);
+}
+.phoneCode{
+  padding: 0px 10px 0px 10px;
+  border: none;
+  box-shadow: 2px 2px 2px 2px lightgray;
+  width: 80px;
+}
+select:focus{
+  outline: none;
+}
+/* .certificates{
+  padding: 12px;
+  border: none;
+  box-shadow: 2px 2px 2px 2px lightgray;
+  width: 465px;
+} */
+.enterCity{
+  display: flex;
+}
+
+/* media query *
+/* Mobile : 375px => 768px */
+@media screen and (min-width:100px) and (max-width:375px) {
+  /* register style */
+.registetrPageContainer {
+  display: flex;
+  max-width: 100%;
+  margin: auto;
+  height: 1024px;
+  font-family: var(--font-familyRoboto);
+}
+.containers h3 {
+  font-family: Aref Ruqaa;
+  color: #2f9c95;
+  font-size: 60px;
+}
+.registetrPageContainer__item1 p{
+  color: #FFFFFF;
+  width:70%;
+  line-height: 40px;
+}
+/* .DivBtn button {
+  width: 100%;
+  border: none;
+  box-shadow: 2px 2px 2px 2px lightgray;
+  border-radius: 5px;
+  padding: 10px;
+} */
+.registerPageContainer__item2{
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 470px;
+  margin: 200px 0px 0px 200px;
+  width: 635px;
+  justify-self: center;
+  font-family: var(--font-familyRoboto); 
+}
+.registetrPageContainer__item1 {
+  width: 530px;
+  color: #fff;
+  background-image: linear-gradient(200.5deg,#2F9C95,#103634 );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.loginBtn button{
+  width: 390px;
+  font-weight: bolder;
+  padding: 15px;
+}
+.contunueBtn button{
+  width: 390px;
+  padding: 15px;
+}
+.registerBtn {
+  border: none;
+  background-color: #fff;
+  border-radius: 2px;
+  padding: 10px;
+  color: #2f9c95;
+  width: 200px;
+}
+.registerBtn:hover {
+  background-color: #fff;
+  color: #2f9c95;
+}
+.registetrPageContainer__item1 p {
+  color: #d5d5d5;
+  width: 55%;
+  text-align: center;
+  font-family: var(--font-familyRoboto);
+}
+.patient {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 10px;
+  width: 150px;
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  position: relative;
+}
+.patient-img {
+  width: 100px;
+  position: absolute;
+  z-index: 1;
+  bottom: 60px;
+  left: 25px;
+}
+.physiotherapist-img {
+  width: 100px;
+  position: absolute;
+  z-index: 1;
+  bottom: 60px;
+  left: 25px;
+}
+.physiotherapist {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 10px;
+  width: 150px;
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  position: relative;
+}
+
+/* end of register style */
+}
+@media screen and (min-width:375px) and (max-width:767px) {
+  
+}
+/* tablet : 768px => 1024px */
+@media screen and (min-width:768px) and (max-width:1024px) {
+  
+}
+/* laptop : 1024px => 1440px */
+@media screen and (min-width:1024px) and (max-width:1440px){}
+
