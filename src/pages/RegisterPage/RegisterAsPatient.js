@@ -67,7 +67,7 @@ function RegisterAsPatient() {
           <div className="d-flex flex-column w-100 mt-3 mb-3">
             <label className="fw-bolder mt-5 mb-2">Phone Number</label>
             <div className="d-flex justify-content-between">
-              <div className="d-flex align-items-center align-items-center phoneCode">
+              <div className="d-flex align-items-center align-items-center rounded-2 phoneCode">
                 <img
                   src="/assets/Group 481318.png"
                   className="pb-2"
@@ -118,7 +118,7 @@ function RegisterAsPatient() {
           </label>
           <div className="d-flex justify-content-between w-100">
             <input className="Diseases" type="file" />
-            <span className="addDiseases rounded-3 text-center">+</span>
+            <span className="addDiseases rounded-2 text-center">+</span>
           </div>
         </div>
         <div className="d-flex flex-column">
@@ -126,8 +126,8 @@ function RegisterAsPatient() {
             Medical Report (optional)
           </label>
           <div className="d-flex justify-content-between w-100">
-            <input className="Diseases rounded-3" type="file" />
-            <span className="addDiseases rounded-3 text-center">+</span>
+            <input className="Diseases rounded-2" type="file" />
+            <span className="addDiseases rounded-2 text-center">+</span>
           </div>
         </div>
         <p className="text-center p fw-bolder mt-5">

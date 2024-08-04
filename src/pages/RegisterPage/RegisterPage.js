@@ -19,15 +19,13 @@ function RegisterPage() {
   return (
     <div className="containers">
       <div className="registetrPageContainer">
-        <div className="registetrPageContainer__item1">
-          <h5 className="text-light fw-bolder mb-5">Welcome Back</h5>
-          <p className="text-center fw-lighter ">
+        <div className="registetrPageContainer__item1 text-center p-2 p-md-3 p-lg-5">
+          <h5 className="text-light fw-bolder mb-5 w-100">Welcome Back</h5>
+          <p className="text-center fw-lighter w-100">
             To keep connected with us please login with your personal info{" "}
           </p>
-          <Link to={"/LoginPage"} className="loginBtnContainer mt-5">
-            <div className="loginBtn">
-              <LightBtn text={"Login"} />
-            </div>
+          <Link to={"/LoginPage"} className="loginBtnContainer w-100 mt-5">
+            <LightBtn text={"Login"} />
           </Link>
         </div>
         <div className="registerPageContainer__item2">

@@ -7,28 +7,36 @@ import { Link } from "react-router-dom";
 import { loginApi } from "../../api/userApi/userApi";
 
 function LoginPage() {
+  const emailRe = /^[\w.%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+  const passwordRe =
+    /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const handleLogin = async () => {
-    setLoading(true);
-    try {
-      const response = await loginApi({
-        email: email,
-        password: password,
-      });
-      console.log(response);
-      setLoading(false);
-    } catch (error) {
-      console.log(error.message);
-      setLoading(false);
+    if (!emailRe.test(email) && !passwordRe.test(password)) {
+      alert("Please enter a valid email address or password.");
+    } else {
+      setLoading(true);
+      try {
+        const response = await loginApi({
+          email: email,
+          password: password,
+        });
+        console.log(response);
+        setLoading(false);
+      } catch (error) {
+        console.log(error.message);
+        alert("Email or Password are incorrect");
+        setLoading(false);
+      }
     }
   };
 
   return (
     <>
-      <div className="pb-5 position-relative">
+      <div className="position-relative">
         {loading ? (
           <div className="loaderContainer">
             <div className="loader"></div>
@@ -106,15 +114,13 @@ function LoginPage() {
               </form>
             </div>
           </div>
-          <div className="loginPageContainer__item2">
+          <div className="loginPageContainer__item2 p-5">
             <h5 className="fw-bolder text-light">New Here?</h5>
             <p className="text-center fw-lighter mt-5">
               Enter your personal details and start journey with us{" "}
             </p>
-            <Link to={"/RegisterPage"}>
-              <div className="loginBtn mt-4">
-                <LightBtn text={"Register"} />
-              </div>
+            <Link to={"/RegisterPage"} className="w-100 mt-4">
+              <LightBtn text={"Register"} />
             </Link>
           </div>
         </div>

@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "react-bootstrap";
 function MintButton({ text, onClick }) {
   return (
-    <Button className="MintButton w-100 rounded-3" onClick={onClick}>
+    <Button className="MintButton w-100 rounded-2" onClick={onClick}>
       {text}
     </Button>
   );

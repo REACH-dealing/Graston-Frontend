@@ -3,7 +3,7 @@ import axios from "axios";
 // Axios instance to set base url of the end-points, headers, and timeout(optional)
 
 export const axiosInstance = axios.create({
-  baseURL: `https://eb1e-197-63-130-236.ngrok-free.app/`,
+  baseURL: `https://graston-backend-production.up.railway.app`,
   timeout: 10000,
   headers: {
     "Content-Type": "application/json",

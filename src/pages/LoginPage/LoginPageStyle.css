@@ -7,9 +7,9 @@
 .loginPageContainer {
   display: flex;
   max-width: 100%;
-  margin: auto;
-  height: 1024px;
   font-family: var(--font-familyRoboto);
+  height: calc(100vh - 70px);
+  margin-top: 70px;
 }
 h6 {
   overflow: hidden;
@@ -49,12 +49,11 @@ h6::after {
 }
 .loginPageContainer__item1 {
   width: 75%;
-  margin-top: 130px;
-  padding: 15px 50px 10px 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  box-sizing: content-box;
 }
 .loginPageContainer__item2 {
   width: 530px;
@@ -124,10 +123,6 @@ h6::after {
   .passwordFiled {
     width: 300px;
   }
-  .googleBtn,
-  .facebookBtn {
-    width: 300px;
-  }
 }
 @media screen and (min-width: 375px) and (max-width: 767px) {
   .loginPageContainer {
@@ -143,10 +138,6 @@ h6::after {
   }
   .emailFiled,
   .passwordFiled {
-    width: 390px;
-  }
-  .googleBtn,
-  .facebookBtn {
     width: 390px;
   }
 }

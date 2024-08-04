@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 import "./style.css";
-import { Button } from 'react-bootstrap';
-function LightBtn({text}) {
+import { Button } from "react-bootstrap";
+function LightBtn({ text }) {
   return (
-    <div>
-      <Button className='lightBtn'>{text}</Button>
-    </div>
-  )
+    <>
+      <Button className="lightBtn w-100 rounded-2">{text}</Button>
+    </>
+  );
 }
 
 export default LightBtn;
