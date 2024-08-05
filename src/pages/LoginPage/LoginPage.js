@@ -51,7 +51,7 @@ function LoginPage() {
             <div className="loginFormContainer">
               <form action="" className="loginForm">
                 <div className="d-flex flex-column">
-                  <label for="email" className="fw-bolder mb-3">
+                  <label htmlFor="email" className="fw-bolder mb-3">
                     Email
                   </label>
                   <input

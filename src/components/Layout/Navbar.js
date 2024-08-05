@@ -4,7 +4,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 function Navbar() {
   return (
     <div className="nav">
-      <nav className="navbar navbar-expand-lg ">
+      <nav className="navbar navbar-expand-lg bg-white p-3 rounded-2">
         <div>
           <a className="navbar-brand" href="/">
             جــــــــــراســــــــــــــتون
