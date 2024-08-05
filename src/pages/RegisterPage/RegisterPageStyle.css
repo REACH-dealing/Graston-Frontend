@@ -3,42 +3,32 @@
   --font-familyCairo: "Cairo", sans-serif;
   --font-familyRoboto: "Roboto", sans-serif;
   --font-familyNotoNastaliqUrdu: Noto Nastaliq Urdu;
+  --main-color : #2f9c95;
 }
 /* register style */
 .registetrPageContainer {
   display: flex;
   max-width: 100%;
   margin: auto;
-  height: 1024px;
+  height: 900px;
   font-family: var(--font-familyRoboto);
 }
 .containers h3 {
   font-family: Aref Ruqaa;
-  color: #2f9c95;
-  font-size: 60px;
+  color: var(--main-color);
+  font-size: 50px;
 }
 .registetrPageContainer__item1 p{
   color: #FFFFFF;
-  width:70%;
   line-height: 40px;
 }
-/* .DivBtn button {
-  width: 100%;
-  border: none;
-  box-shadow: 2px 2px 2px 2px lightgray;
-  border-radius: 5px;
-  padding: 10px;
-} */
 .registerPageContainer__item2{
-  width: auto;
+  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 470px;
-  margin: 200px 0px 0px 200px;
-  width: 635px;
-  justify-self: center;
-  font-family: var(--font-familyRoboto); 
+  justify-content: center;
+  margin-top: 140px;
 }
 .registetrPageContainer__item1 {
   width: 530px;
@@ -63,7 +53,7 @@
   background-color: #fff;
   border-radius: 2px;
   padding: 10px;
-  color: #2f9c95;
+  color: var(--main-color);
   width: 200px;
 }
 .registerBtn:hover {
@@ -113,7 +103,9 @@
   justify-content: end;
   position: relative;
 }
-
+.continueBtn{
+  display: none;
+}
 /* end of register style */
 
 /* registerAsPatient */
@@ -121,7 +113,7 @@
   margin-left: 10px;
 }
 .registerAsPatient{
-  padding: 120px 0px 100px 0px ;
+  padding: 50px 0px 100px 0px ;
   max-width: 25%;
   margin: auto;
   font-family: var(--font-familyRoboto);
@@ -132,6 +124,21 @@
   color: #2F9C95;
   font-size: 40px;
 }
+.EnterNameItems{
+  display: flex;
+}
+ input::placeholder{
+  font-size: 13px;
+}
+label{
+  font-size: 14px;
+}
+.registerAsPatient [type="text"] ,.email , .password , .nationality,.country ,.city {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px 2px lightgray;
+}
 .registetrPageContainer [type="radio"] {
   transform: scale(2);
   position: absolute;
@@ -139,33 +146,14 @@
   top: 103px;
   left: 67px;
 }
-.EnterNameItems{
-  display: flex;
-}
-
- input::placeholder{
-  font-size: 12px;
- }
- label{
-  font-size: 14px;
- }
-.registerBtn button{
-  width: 100%;
-}
-.registerAsPatient [type="text"] ,.email , .password , .nationality,.country ,.city {
-  padding: 10px;
-  border: none;
-  box-shadow: 2px 2px 2px 2px lightgray;
-}
 span{
-  color: #2F9C95;
+  color: var(--main-color);
   text-decoration: underline;
 }
 .email , .password , .nationality{
   width: 390px;
 }
 .RegisterBtn button{
-  /* width: 100%; */
   width: 390px;
 }
 .nameInput{
@@ -184,14 +172,15 @@ span{
   padding: 10px;
   border: none;
   box-shadow: 2px 2px 2px 2px lightgray;
-  width: 295px;
+  width: 300px;
 }
 .addDiseaes{
   padding:10px;
   border: none;
   box-shadow: 2px 2px 2px 2px lightgray;
-  width: 80px;
+  width: 60px;
   margin-top:85px;
+  text-align: center;
 }
 .country ,.city{
   width:185px;
@@ -202,20 +191,48 @@ span{
 .phoneCode{
   padding: 0px 10px 0px 10px;
   border: none;
+  border-radius: 5px;
   box-shadow: 2px 2px 2px 2px lightgray;
-  width: 80px;
+  width: 85px;
 }
 select:focus{
   outline: none;
 }
-/* .certificates{
-  padding: 12px;
-  border: none;
-  box-shadow: 2px 2px 2px 2px lightgray;
-  width: 465px;
-} */
 .enterCity{
   display: flex;
+}
+.dates{
+  width: 390px;
+  padding: 10px;
+  border: none;
+  box-shadow: 2px 2px 2px 2px lightgray;
+}
+.email{
+  background: url("/public/assets/email\ icon.png") no-repeat left;
+  background-size: 20px;
+  background-position: 10px center;
+  padding-left: 40px; 
+  box-sizing: border-box; 
+}
+.password{
+  background: url("/public/assets/show.png") no-repeat right;
+  background-size: 20px;
+  background-position-x: 350px;
+  cursor: pointer;
+}
+#Id{
+  background: url("/public/assets/🦆\ icon\ _perm\ identity_.png") no-repeat left;
+  background-size: 20px;
+  background-position: 10px center;
+  padding-left: 40px; 
+  box-sizing: border-box; 
+}
+.nationality{
+  background: url("/public/assets/Vector\ \(4\).png") no-repeat left;
+  background-size: 20px;
+  background-position: 10px center;
+  padding-left: 40px; 
+  box-sizing: border-box; 
 }
 
 /* media query *
@@ -223,48 +240,13 @@ select:focus{
 @media screen and (min-width:100px) and (max-width:375px) {
   /* register style */
 .registetrPageContainer {
-  display: flex;
-  max-width: 100%;
-  margin: auto;
-  height: 1024px;
-  font-family: var(--font-familyRoboto);
+  flex-direction: column-reverse;
 }
-.containers h3 {
-  font-family: Aref Ruqaa;
-  color: #2f9c95;
-  font-size: 60px;
-}
-.registetrPageContainer__item1 p{
-  color: #FFFFFF;
-  width:70%;
-  line-height: 40px;
-}
-/* .DivBtn button {
-  width: 100%;
-  border: none;
-  box-shadow: 2px 2px 2px 2px lightgray;
-  border-radius: 5px;
-  padding: 10px;
-} */
 .registerPageContainer__item2{
-  width: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 470px;
-  margin: 200px 0px 0px 200px;
-  width: 635px;
-  justify-self: center;
-  font-family: var(--font-familyRoboto); 
+  padding-top: 0px;
 }
 .registetrPageContainer__item1 {
-  width: 530px;
-  color: #fff;
-  background-image: linear-gradient(200.5deg,#2F9C95,#103634 );
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: none;
 }
 .loginBtn button{
   width: 390px;
@@ -272,73 +254,198 @@ select:focus{
   padding: 15px;
 }
 .contunueBtn button{
-  width: 390px;
-  padding: 15px;
+  width: 300px;
+  margin-top: 70px;
 }
-.registerBtn {
-  border: none;
-  background-color: #fff;
-  border-radius: 2px;
-  padding: 10px;
-  color: #2f9c95;
-  width: 200px;
+.registerBtn button{
+  width: 100%;
 }
-.registerBtn:hover {
-  background-color: #fff;
-  color: #2f9c95;
+/* end of register style */
+
+/* registerAsPatient */
+.cityItem{
+  margin-left: 0px;
 }
-.registetrPageContainer__item1 p {
-  color: #d5d5d5;
-  width: 55%;
-  text-align: center;
-  font-family: var(--font-familyRoboto);
-}
-.patient {
-  background-color: #f5f5f5;
-  border-radius: 10px;
-  padding: 10px;
-  width: 150px;
-  height: 110px;
-  display: flex;
+.enterCity{
   flex-direction: column;
-  align-items: center;
-  justify-content: end;
-  position: relative;
 }
-.patient-img {
-  width: 100px;
-  position: absolute;
-  z-index: 1;
-  bottom: 60px;
-  left: 25px;
+.registerAsPatient{
+  max-width: 90%;
 }
-.physiotherapist-img {
-  width: 100px;
-  position: absolute;
-  z-index: 1;
-  bottom: 60px;
-  left: 25px;
-}
-.physiotherapist {
-  background-color: #f5f5f5;
-  border-radius: 10px;
-  padding: 10px;
-  width: 150px;
-  height: 110px;
-  display: flex;
+.EnterNameItems{
   flex-direction: column;
-  justify-content: end;
-  position: relative;
 }
 
-/* end of register style */
+.registerBtn button{
+  width: 100%;
 }
-@media screen and (min-width:375px) and (max-width:767px) {
-  
+.email , .password , .nationality{
+  width: 320px;
+}
+.RegisterBtn button{
+  width: 320px;
+}
+.nameInput{
+  width:320px;
+}
+.label{
+  margin:20px 0px 10px 0px;
+}
+.phone {
+  width: 225px;
+}
+.Diseases,.certificates{
+  width: 235px;
+}
+.country ,.city{
+  width:320px;
+}
+.enterCity{
+  display: flex;
+}
+.googleBtn,.facebookBtn{
+  width: 320px;
+}
+}
+@media screen and (min-width:375px) and (max-width:767px) { 
+   /* register style */
+.registetrPageContainer {
+  flex-direction: column-reverse;
+}
+.registerPageContainer__item2{
+  padding-top: 60px;
+}
+.registetrPageContainer__item1 {
+  display: none;
+}
+.loginBtn button{
+  width: 390px;
+  font-weight: bolder;
+  padding: 15px;
+}
+.contunueBtn button{
+  width: 300px;
+  margin-top: 70px;
+}
+/* end of register style */
+
+/* registerAsPatient */
+.cityItem{
+  margin-left: 0px;
+}
+.enterCity{
+  flex-direction: column;
+}
+.registerAsPatient{
+  max-width: 90%;
+}
+.EnterNameItems{
+  flex-direction: column;
+}
+.registerBtn button{
+  width: 100%;
+}
+.email , .password , .nationality{
+  width: 380px;
+}
+.RegisterBtn button{
+  width: 380px;
+}
+.nameInput{
+  width:380px;
+}
+.label{
+  margin:20px 0px 10px 0px;
+}
+.phone {
+  width: 288px;
+}
+.Diseases,.certificates{
+  width: 280px;
+}
+.country ,.city{
+  width:380px;
+}
+.enterCity{
+  display: flex;
+}
+.googleBtn,.facebookBtn{
+  width: 380px;
+}
 }
 /* tablet : 768px => 1024px */
 @media screen and (min-width:768px) and (max-width:1024px) {
-  
+   /* register style */
+.registetrPageContainer {
+  flex-direction: column-reverse;
+}
+.registerPageContainer__item2{
+  padding-top: 60px;
+}
+.registetrPageContainer__item1 {
+  display: none;
+}
+.loginBtn button{
+  width: 390px;
+  font-weight: bolder;
+  padding: 15px;
+}
+.contunueBtn button{
+  width:500px;
+  margin-top: 70px;
+}
+/* end of register style */
+
+  /* registerAsPatient */
+.cityItem{
+  margin-left: 0px;
+}
+.enterCity{
+  flex-direction: column;
+}
+.registerAsPatient{
+  max-width: 60%;
+}
+.EnterNameItems{
+  flex-direction: column;
+}
+.registerBtn button{
+  width: 100%;
+}
+.email , .password , .nationality{
+  width: 500px;
+}
+.RegisterBtn button{
+  width: 500px;
+}
+.nameInput{
+  width:500px;
+}
+.label{
+  margin:20px 0px 10px 0px;
+}
+.phone {
+  width:400px;
+}
+.Diseases,.certificates{
+  width: 400px;
+  margin-right: 20px;
+}
+.country ,.city{
+  width:500px;
+}
+.enterCity{
+  display: flex;
+}
+.googleBtn,.facebookBtn{
+  width: 500px;
+}
+.password{
+  background-position-x: 450px;
+}
+.dates{
+  width: 500px;
+}
 }
 /* laptop : 1024px => 1440px */
 @media screen and (min-width:1024px) and (max-width:1440px){}

@@ -1,46 +1,46 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
+import { Link } from 'react-router-dom';
+import './ComponentsStyle.css';
+
 function Navbar() {
   return (
-    <div className='nav'>
-      <nav className="navbar navbar-expand-lg ">
+    <div className='navbarContainer'>
+      <nav className='navbar'>
+        {/* 1 */}
         <div>
-        <a className="navbar-brand" href="/">جــــــــــراســــــــــــــتون</a>
+            <Link to={'/'} className='text-decoration-none'><h3 className='logo fw-bolder'>جــــــــــراســــــــــــــتون</h3></Link>
         </div>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
-            <li className="nav-item active">
-              <a className="nav-link" href="/">Home <span className="sr-only"></span></a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/">Shop</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/">About Us</a>
-              {/* <a className="nav-link" href="/ForgotPassword">About Us</a> */}
-              {/* <a className="nav-link" href="/ForgotPasswordEmail">About Us</a> */}
-              {/* <a className="nav-link" href="/VerifayPhone">About Us</a> */}
-              {/* <a className="nav-link" href="/VerifayEmail">About Us</a> */}
-              {/* <a className="nav-link" href="/CreateNewPassword">About Us</a> */}
-              {/* <a className="nav-link" href="/RestPassword">About Us</a> */}
-            </li>
-            <li className="nav-item">
-              <a className="nav-link disabled" href="/">Contact Us</a>
-            </li>
+        {/* 2 */}
+        <div>
+          <ul className='list mt-3'>
+            <li className='list__item'><Link className='list__item__link active' to="/">Home</Link></li>
+            <li className='list__item'><Link className='list__item__link not-active' to="/">Shop</Link></li>
+            <li className='list__item'><Link className='list__item__link not-active' to="/">About Us</Link></li>
+            <li className='list__item'><Link className='list__item__link not-active' to="/">Contact Us</Link></li>
           </ul>
         </div>
-        <div className="collapse navbar-collapse navbar-nav mt-2" id="navbarNav">
-          <p className="nav-item active">
-          <a className="nav-link" href="LoginPage">Login</a></p>
-          <p className="nav-item active"><a className="nav-link" href="RegisterPage">Sign Up</a></p>
+
+        {/* 3 */}
+        <div className=''>
+        <Link to={'/LoginPage'} className='link'>
+          <button className='me-4'>
+            Login
+          </button>
+          </Link>
+          <Link to={'/RegisterPage'} className='link'>
+            <button className=''>
+              Sign Up
+            </button>
+          </Link>
         </div>
 
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <p>Language</p>
+        {/* 4 */}
+        <div className='d-flex justify-content-center align-items-center'>
+            <img src='/assets/translate.png' alt='translate'/>
+            <select className='language ms-3'>
+                <option>العربية</option>
+                <option>English</option>
+            </select>
         </div>
       </nav>
     </div>

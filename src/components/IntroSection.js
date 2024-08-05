@@ -1,6 +1,5 @@
 import React from 'react';
 import "./ComponentsStyle.css";
-import { Button } from 'react-bootstrap';
 import CommonButton from '../CommonComponents/CommonButton';
 function IntroSection() {
   return (

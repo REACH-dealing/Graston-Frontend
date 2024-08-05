@@ -6,7 +6,7 @@ import LightBtn from '../../Common/LightBtn';
 import { Link } from 'react-router-dom';
 function LoginPage() {
   return (
-    <div className='pb-5'>
+    <div className=''>
       <div className='loginPageContainer'>
         <div className='loginPageContainer__item1'>
         <h3 className='text-center mb-4'>جــــــــــراســــــــــــــتون</h3>
@@ -19,19 +19,19 @@ function LoginPage() {
               </div>
               <div className='d-flex flex-column'>
                 <label for="password" className='fw-bolder mb-3 mt-4'>Password</label>
-                <input id='password' placeholder='Enter Your Password' type='password' required className='passwordFiled'/>
+                <input id='password' placeholder='1234kk@2' type='password' required className='passwordFiled'/>
               </div>
   
               <div className='d-flex justify-content-between align-self-start mt-4'>
                 <div className=''>
-                  <p className='fw-bolder mt-2'><Link to={'/ForgotPassword'}>Forgot Password?</Link></p>
+                  <p className='fw-bolder mt-2 '><Link to={'/ForgotPassword'}>Forgot Password?</Link></p>
                 </div>
               </div>
               <div className='DivBtn'>
                 <MintButton text="Login"/>
               </div>
               <h6 className='mt-5'>OR</h6>
-              <Button variant='light' className='fw-bolder d-block  googleBtn mt-4'><img src='/assets/Vector (1).png' className='me-3' width={'22px'} alt='google'/>Login With Google</Button>
+              <Button variant='light' className='fw-bolder d-block  googleBtn mt-4'><img src='/assets/google.png' className='me-3' width={'22px'} alt='google'/>Login With Google</Button>
               <Button className='facebookBtn fw-bolder d-block  mt-4'><img src='/assets/facebook icon.png' className='me-3' width={'22px'} alt='facebook'/>Login With Facebook</Button>
             </form>
           </div>
@@ -44,6 +44,10 @@ function LoginPage() {
               <LightBtn text={"Register"}/>
             </div>
           </Link>
+        </div>
+
+        <div className='sign-option mt-5 mb-3'>
+          <p className='fw-bolder fs-5'>Don’t have an account? <Link className='text-decoration-none ms-2 fs-5' style={{color:"#2F9C95"}}>Sign Up</Link> </p>
         </div>
       </div>
     </div>

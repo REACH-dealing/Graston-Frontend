@@ -29,7 +29,7 @@ function ForgotPassword() {
         </div>
       </Link>
       
-        <p className='mt-3 mb-4' style={{color:"#2F9C95"}} ><span className='me-2' style={{color:"#646464"}}>Or</span> <Link to={'/ForgotPasswordEmail'} className='verifay'>Verify using your email address</Link> </p>
+        <p className='mt-3 mb-4' style={{color:"#2F9C95"}} ><span className='text-decoration-none me-2' style={{color:"#646464"}}>Or</span> <Link to={'/ForgotPasswordEmail'} className='verifay'>Verify using your email address</Link> </p>
       </div>
     </div>
   )

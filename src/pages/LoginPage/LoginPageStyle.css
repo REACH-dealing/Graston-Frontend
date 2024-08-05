@@ -2,13 +2,14 @@
   --color: black;
   --font-familyCairo: 'Cairo', sans-serif;
   --font-familyRoboto: 'Roboto', sans-serif;
-  --font-familyNotoNastaliqUrdu:Noto Nastaliq Urdu
+  --font-familyNotoNastaliqUrdu:Noto Nastaliq Urdu;
+  --main-color : #2f9c95;
 }
 .loginPageContainer{
   display: flex;
   max-width: 100%;
   margin: auto;
-  height: 1024px;
+  height: 900px;
   font-family: var(--font-familyRoboto);
 }
  h6 {
@@ -47,9 +48,7 @@ h6::after {
   padding: 10px;
 }
 .loginPageContainer__item1{
-  width: 75%;
-  margin-top: 130px;
-  padding: 15px 50px 10px 50px;
+  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -84,23 +83,27 @@ h6::after {
   padding: 10px;
   width: 390px;
 }
-.registerBtn{
-  border: none;
-  background-color: #fff;
-  border-radius: 2px;
-  padding: 10px;
-  color: #2F9C95;
-  width: 200px;
-}
-.password{
-  background: url("/public/assets/Vector.png") no-repeat right;
+.passwordFiled{
+  background: url("/public/assets/show.png") no-repeat right;
   background-size: 20px;
-  background-position-x: 500px;
+  background-position-x: 350px;
+  cursor: pointer;
 }
+.emailFiled{
+  background: url("/public/assets/email\ icon.png") no-repeat left;
+  background-size: 20px;
+  background-position: 10px center;
+  padding-left: 40px; 
+  box-sizing: border-box; 
+}
+
 .loginPageContainer__item2 p{
   color: #d5d5d5;
   text-align: center;
   font-family: var(--font-familyRoboto);
+}
+.sign-option{
+  display: none;
 }
 /* media query *
 /* Mobile : 375px => 768px */
@@ -111,16 +114,19 @@ h6::after {
     align-items: center;
   }
   .DivBtn button{
-    width: 300px;
+    width: 330px;
   }
   .loginPageContainer__item2{
     display: none;
   }
   .emailFiled ,.passwordFiled{
-    width: 300px;
+    width: 330px;
   }
   .googleBtn ,.facebookBtn{
-    width: 300px;
+    width: 330px;
+  }
+  .sign-option{
+    display: block;
   }
 }
 @media screen and (min-width:375px) and (max-width:767px) {
@@ -130,21 +136,46 @@ h6::after {
     align-items: center;
   }
   .DivBtn button{
-    width:390px;
+    width: 380px;
   }
   .loginPageContainer__item2{
     display: none;
   }
   .emailFiled ,.passwordFiled{
-    width: 390px;
+    width: 380px;
   }
   .googleBtn ,.facebookBtn{
-    width: 390px;
+    width: 330px;
+  }
+  .sign-option{
+    display: block;
   }
 }
 /* tablet : 768px => 1024px */
 @media screen and (min-width:768px) and (max-width:1024px) {
-  
+  .loginPageContainer{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .DivBtn button{
+    width: 500px;
+  }
+  .loginPageContainer__item2{
+    display: none;
+  }
+  .emailFiled ,.passwordFiled{
+    width: 500px;
+  }
+  .googleBtn ,.facebookBtn{
+    width: 330px;
+  }
+  .sign-option{
+    display: block;
+  }
+  .passwordFiled{
+    background-position-x: 450px;
+  }
 }
 /* laptop : 1024px => 1440px */
 @media screen and (min-width:1024px) and (max-width:1440px){}

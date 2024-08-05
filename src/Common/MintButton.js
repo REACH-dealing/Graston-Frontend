@@ -1,13 +1,12 @@
 import React from 'react';
 import "./style.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button } from 'react-bootstrap';
-function MintButton({text}) {
+function MintButton({text , onClick}) {
   return (
     <div>
-      <Button className='MintButton'>
-        {text}
-      </Button>
+       <button onClick={onClick} className='MintButton'>
+         {text}
+        </button>
     </div>
   )
 }

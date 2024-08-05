@@ -1,0 +1,90 @@
+:root {
+    --color: black;
+    --font-familyCairo: 'Cairo', sans-serif;
+    --font-familyRoboto: 'Roboto', sans-serif;
+    --font-familyNotoNastaliqUrdu:Noto Nastaliq Urdu;
+    --main-color:#2f9c95;
+}
+.patientProfileContainer{
+    font-family: var(--font-familyRoboto);
+    display: flex;
+    /* height: 100vh; */
+}
+.patientProfileContainer__item1{
+    background-color: #fff;
+    padding: 24px;
+    height: 100%;
+}
+.profileSettings div{
+    width: 296px;
+    line-height: 43px;
+    cursor: pointer;
+}
+.profileSettings div p{
+    color: var(--main-color);
+    font-size: 16px;
+}
+.profileSettings div img{
+    width: 24px;
+    height: 20.84px;
+}
+.patientProfileContainer__item2{
+    background-color: #F5F5F5;
+    padding: 50px;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+input{
+    border-radius: 5px;
+}
+input:focus{
+    outline: none;
+}
+.nameFiled{
+    width: 185px;
+    padding: 10px;
+    border: none;
+    box-shadow: 2px 2px 2px 2px lightgray;
+}
+.date,.national{
+    padding: 10px;
+    border: none;
+    box-shadow: 2px 2px 2px 2px lightgray;
+    width: 300px;
+}
+.custom-radio {
+    transform: scale(1.5);
+}
+.Disease{
+    width: 233px;
+    padding: 10px;
+    border: none;
+    box-shadow: 2px 2px 2px 2px lightgray;
+}
+.addDiseae{
+  padding:10px;
+  border: none;
+  box-shadow: 2px 2px 2px 2px lightgray;
+  width: 57px;
+  margin-top:85px;
+}
+.save-info button{
+    width: 185px;
+    border-radius: 5px;
+}
+.patient-info{
+    width: 70%;
+    margin: auto;
+}
+.add-image{
+    left: 52%;
+    top: 68%;
+}
+.specialization{
+    border-radius: 5px;
+    width: 300px;
+    padding: 10px;
+    border: none;
+    box-shadow: 2px 2px 2px 2px lightgray;
+}
