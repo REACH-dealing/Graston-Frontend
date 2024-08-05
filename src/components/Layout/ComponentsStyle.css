@@ -1,20 +1,19 @@
 :root {
   --color: black;
-  --font-familyCairo: 'Cairo', sans-serif;
-  --font-familyRoboto: 'Roboto', sans-serif;
-  --font-familyNotoNastaliqUrdu:Noto Nastaliq Urdu;
-  --main-color:#2F9C95;
+  --font-familyCairo: "Cairo", sans-serif;
+  --font-familyRoboto: "Roboto", sans-serif;
+  --font-familyNotoNastaliqUrdu: Noto Nastaliq Urdu;
+  --main-color: #2f9c95;
   --font-familyCairo: "Cairo", sans-serif;
   --font-familyRoboto: "Roboto", sans-serif;
   --font-familyNotoNastaliqUrdu: Noto Nastaliq Urdu;
 }
 /* NavBar style */
-.navbarContainer{
+.navbarContainer {
   font-family: var(--font-familyRoboto);
-.nav {
   background-color: #fff;
   box-shadow: 3px 3px 3px 3px lightgray;
-  padding:5px;
+  padding: 5px;
   position: fixed;
   top: 0px;
   width: 100%;
@@ -23,54 +22,56 @@
   display: flex;
   z-index: 10000;
 }
-.navbar{
+.navbar {
   display: flex;
   max-width: 90%;
-.navbar {
   width: 90%;
   margin: auto;
   max-height: 100%;
 }
-.logo{
+.logo {
   color: var(--main-color);
   font-family: var(--font-familyNotoNastaliqUrdu);
 }
-.list{
+.list {
   list-style: none;
   display: flex;
   gap: 50px;
   justify-content: center;
   align-items: center;
 }
-.list__item__link ,.link{
+.list__item__link,
+.link {
   color: var(--color);
   text-decoration: none;
 }
-.active{
+.active {
   color: var(--main-color);
 }
-.not-active:focus{
+.not-active:focus {
   color: var(--main-color);
+}
 .navbar-brand {
   font-family: Aref Ruqaa;
   color: #2f9c95;
   font-weight: bold;
   font-size: 30px;
 }
-.navbar button{
+.navbar button {
   border: none;
   padding: 10px;
   border-radius: 5px;
   width: 120px;
 }
-button:focus{
+button:focus {
   color: #fff;
   background-color: var(--main-color);
 }
-.language{
+.language {
   padding: 10px;
   border: none;
   border-radius: 5px;
+}
 .navbar-brand:hover {
   color: #2f9c95;
 }
@@ -95,9 +96,10 @@ button:focus{
   margin-top: 130px;
   display: flex;
 }
-.introSection__item1 p:first-child{
+.introSection__item1 p:first-child {
   color: var(--main-color);
-  font-weight:bold;
+  font-weight: bold;
+}
 .introSection__item1 p:first-child {
   color: #2f9c95;
   font-weight: bold;
@@ -112,8 +114,9 @@ button:focus{
   color: #323232;
   font-family: var(--font-familyRoboto);
 }
-.introSection__item2 div{
-  background-color:var(--main-color);
+.introSection__item2 div {
+  background-color: var(--main-color);
+}
 .introSection__item2 div {
   background-color: #2f9c95;
   width: 212px;
