@@ -1,12 +1,12 @@
 :root {
   --color: black;
-  --font-familyCairo: 'Cairo', sans-serif;
-  --font-familyRoboto: 'Roboto', sans-serif;
-  --font-familyNotoNastaliqUrdu:Noto Nastaliq Urdu
+  --font-familyCairo: "Cairo", sans-serif;
+  --font-familyRoboto: "Roboto", sans-serif;
+  --font-familyNotoNastaliqUrdu: Noto Nastaliq Urdu;
 }
 
 /* NavBar style */
-.nav{
+.nav {
   background-color: #fff;
   position: fixed;
   top: 0px;
@@ -14,34 +14,35 @@
   box-shadow: 2px 2px 2px 2px lightgray;
   display: flex;
   justify-content: space-between;
+  z-index: 1000;
 }
-.navbar{
+.navbar {
   width: 90%;
   margin: auto;
 }
-.navbar-brand{
-  font-family:Aref Ruqaa;
-  color: #2F9C95;
-  font-weight:bold;
+.navbar-brand {
+  font-family: Aref Ruqaa;
+  color: #2f9c95;
+  font-weight: bold;
   font-size: 30px;
 }
-.navbar-brand:hover{
-  color: #2F9C95;
+.navbar-brand:hover {
+  color: #2f9c95;
 }
 
 /* introSection style */
-.introSection{
+.introSection {
   max-width: 90%;
   margin: auto;
   margin-top: 130px;
   display: flex;
 }
-.introSection__item1 p:first-child{
-  color: #2F9C95;
-  font-weight:bold;
+.introSection__item1 p:first-child {
+  color: #2f9c95;
+  font-weight: bold;
   font-family: var(--font-familyRoboto);
 }
-.introSection__item1 h1{
+.introSection__item1 h1 {
   font-weight: bold;
   color: #323232;
   font-family: var(--font-familyRoboto);
@@ -50,12 +51,12 @@
   color: #323232;
   font-family: var(--font-familyRoboto);
 }
-.introSection__item2 div{
-  background-color:#2F9C95;
+.introSection__item2 div {
+  background-color: #2f9c95;
   width: 212px;
   height: 210px;
 }
-.btnDiv button{
+.btnDiv button {
   width: 150px;
 }
 

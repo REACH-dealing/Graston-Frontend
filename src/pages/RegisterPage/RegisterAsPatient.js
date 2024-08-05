@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./RegisterPageStyle.css";
-import { Button } from 'react-bootstrap';
-import MintButton from '../../Common/MintButton';
+import { Button } from "react-bootstrap";
+import MintButton from "../../Common/MintButton";
 function RegisterAsPatient() {
 
   const [selectGender , setGender] = useState('');
@@ -24,21 +24,31 @@ function RegisterAsPatient() {
             <input type='text' placeholder='Ahmed' required className='nameInput'/>
           </div>
         </div>
-        <div className='d-flex flex-column x'>
-          <label className='fw-bolder mt-5 mb-2'>Email</label>
-          <input type='email' required placeholder='Abdullah@gmail.com' className='email'/>
+        <div className="d-flex flex-column x">
+          <label className="fw-bolder mt-5 mb-2">Email</label>
+          <input
+            type="email"
+            required
+            placeholder="Abdullah@gmail.com"
+            className="email"
+          />
         </div>
-        <div className='d-flex flex-column x'>
-          <label className='fw-bolder mt-5 mb-2'>Password</label>
-          <input type='password' required placeholder='1234kk@2' className='password'/>
+        <div className="d-flex flex-column x">
+          <label className="fw-bolder mt-5 mb-2">Password</label>
+          <input
+            type="password"
+            required
+            placeholder="1234kk@2"
+            className="password"
+          />
         </div>
         <div className='d-flex flex-column'>
           <label className='fw-bolder mt-5 mb-2'>Nationality ID</label>
           <input type='' required placeholder='3333111100005555' className='nationality' id='Id'/>
         </div>
-        <div className='d-flex flex-column'>
-          <label className='fw-bolder mt-5 mb-2'>Nationality</label>
-          <select className='nationality' >
+        <div className="d-flex flex-column">
+          <label className="fw-bolder mt-5 mb-2">Nationality</label>
+          <select className="nationality">
             <option></option>
             <option></option>
             <option></option>
@@ -91,29 +101,37 @@ function RegisterAsPatient() {
             </div>
           </div>
         </div>
-        <div className='d-flex'>
-          <div>
-            <label className='mt-5 mb-3 fw-bolder'>Chronic Diseases (optional)</label>
-            <input className='Diseases'/>
+
+        <div className="d-flex justify-content-between mt-5">
+          <div className="d-flex flex-column">
+            <label className="fw-bolder mb-2">Country</label>
+            <input className="country" />
           </div>
-          <input placeholder='+' className='addDiseaes '/>
-        </div>
-        <div className='d-flex'>
-          <div>
-            <label className='mt-5 mb-3 fw-bolder'>Medical Report (optional)</label>
-            <input className='Diseases' placeholder='Upload Medical Reports'/>
+          <div className="d-flex flex-column cityItem">
+            <label className="fw-bolder mb-2">city</label>
+            <input className="city" />
           </div>
-          <input placeholder='+' className='addDiseaes '/>
         </div>
-        <p className='text-center p fw-bolder mt-5'>By continuing, you agree graston's <span className='span'>Terms of use</span> And <span className='span'>privacy policy</span></p>
-        <div className='RegisterBtn'>
-          <MintButton text={'Register'}/>
+        <div className="mt-3">
+          <label className="fw-bolder mt-5 mb-2">Gender</label>
+          <div className="d-flex w-100 pt-3 pb-3 ps-2">
+            <div className="d-flex align-items-center me-5">
+              <input type="radio" className="" />
+              <label className="ms-3" style={{ color: "#4A525A" }}>
+                Female
+              </label>
+            </div>
+            <div className="d-flex align-items-center">
+              <input type="radio" className="me-3" />
+              <label style={{ color: "#4A525A" }}>Male</label>
+            </div>
+          </div>
         </div>
         <h6 className='mt-3'>OR</h6>
           <Button variant='light' className='fw-bolder d-block googleBtn mt-4'><img src='/assets/google.png' className='me-3' width={'22px'} alt='google'/>Login With Google</Button>
           <Button className=' facebookBtn fw-bolder d-block mt-5'><img src='/assets/facebook icon.png' className='me-3' width={'22px'} alt='facebook'/>Login With Facebook</Button>
       </form>
     </div>
-  )
+  );
 }
 export default RegisterAsPatient;

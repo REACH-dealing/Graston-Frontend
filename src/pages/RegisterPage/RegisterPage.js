@@ -33,7 +33,7 @@ function RegisterPage() {
             </div>
           </Link>
         </div>
-        <div className='registerPageContainer__item2'>
+        <div className="registerPageContainer__item2">
           <div>
             <h3 className='text-center'>جــــــــــراســــــــــــــتون</h3>
             <p className='mt-3 fw-bolder registetrPageContainer__item2__p text-center mt-5'>
@@ -82,3 +82,4 @@ function RegisterPage() {
 }
 
 export default RegisterPage;
+

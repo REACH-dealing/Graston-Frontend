@@ -1,5 +1,5 @@
 import { axiosInstance } from "../../utils/axiosInstance";
-import qs from 'qs'
+import qs from "qs";
 
 // User related end points
 
@@ -60,25 +60,43 @@ export const refreshToken = async () => {
 
 // Sending OTP Code
 
-export const sendOTP = async () => {
+export const sendOTP = async (email) => {
   // const queryEmail = qs.stringify(queryParams)
   try {
-    const response = await axiosInstance.get(`/auth/send-otp2email/aymanelghozy%40gmail.com/`);
-    return response
+    const rEmail = qs.stringify(email);
+    const response = await axiosInstance.get(`/auth/send-otp2email/${rEmail}/`);
+    return response;
   } catch (error) {
-    console.log("Error sending OTP code," ,error.message)
-    throw error
+    console.log("Error sending OTP code,", error.message);
+    throw error;
   }
-}
+};
 
 // Verifying OTP Code
 
 export const verifyOTP = async () => {
   try {
-    const response = await axiosInstance.post(`/auth/verify-otp/aymanelghozy%40gmail.com/`);
-    return response
+    const response = await axiosInstance.post(
+      `/auth/verify-otp/aymanelghozy%40gmail.com/`
+    );
+    return response;
   } catch (error) {
-    console.log('Error Verifying OTP Code', error.message)
+    console.log("Error Verifying OTP Code", error.message);
     throw error;
   }
-}
+};
+
+// Delete Account - end point
+
+export const deleteAccount = async (password) => {
+  try {
+    const sPassword = qs.stringify(password);
+    const response = await axiosInstance.delete(
+      `/auth/delete-account/${sPassword}/`
+    );
+    return response;
+  } catch (error) {
+    console.log("Error Deleting Account", error.message);
+    throw error;
+  }
+};
