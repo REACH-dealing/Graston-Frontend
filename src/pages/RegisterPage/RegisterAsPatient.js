@@ -40,13 +40,6 @@ function RegisterAsPatient() {
             required
             placeholder="Abdullah@gmail.com"
             className="email"
-            onChange={(e) => {
-              dispatch({ type: "email", email: e.target.value });
-              setValidateEmail(!state.user.email ? false : true);
-            }}
-            style={
-              !validateEmail ? { border: "1px solid red" } : { border: "none" }
-            }
           />
         </div>
         <div className="d-flex flex-column x">
@@ -56,15 +49,6 @@ function RegisterAsPatient() {
             required
             placeholder="1234kk@2"
             className="password"
-            onChange={(e) => {
-              dispatch({ type: "password", password: e.target.value });
-              setValidatePassword(!state.user.password ? false : true);
-            }}
-            style={
-              !validatePassword
-                ? { border: "1px solid red" }
-                : { border: "none" }
-            }
           />
         </div>
         <div className="d-flex flex-column">
@@ -79,12 +63,7 @@ function RegisterAsPatient() {
         </div>
         <div className="d-flex flex-column">
           <label className="fw-bolder mt-5 mb-2">Nationality</label>
-          <select
-            className="nationality"
-            onChange={(e) => {
-              dispatch({ type: "nationality", nationality: e.target.value });
-            }}
-          >
+          <select className="nationality">
             <option disabled selected>
               Choose Your Nationality
             </option>
@@ -136,7 +115,6 @@ function RegisterAsPatient() {
               <input
                 type="radio"
                 checked={selectGender === "female"}
-                onClick={() => handleGenderType("female")}
                 className=""
               />
               <label className="ms-3" style={{ color: "#4A525A" }}>
@@ -148,7 +126,6 @@ function RegisterAsPatient() {
                 type="radio"
                 className=""
                 checked={selectGender === "male"}
-                onClick={() => handleGenderType("male")}
               />
               <label className="ms-3 mt-3" style={{ color: "#4A525A" }}>
                 Male
@@ -160,41 +137,18 @@ function RegisterAsPatient() {
         <div className="d-flex justify-content-between mt-5">
           <div className="d-flex flex-column">
             <label className="fw-bolder mb-2">Country</label>
-            <input
-              className="country"
-              onChange={(e) => {
-                dispatch({
-                  type: "country",
-                  country: e.target.value,
-                });
-              }}
-            />
+            <input className="country" />
           </div>
           <div className="d-flex flex-column cityItem">
             <label className="fw-bolder mb-2">city</label>
-            <input
-              className="city"
-              onChange={(e) => {
-                dispatch({
-                  type: "city",
-                  city: e.target.value,
-                });
-              }}
-            />
+            <input className="city" />
           </div>
         </div>
         <div className="mt-3">
           <label className="fw-bolder mt-5 mb-2">Gender</label>
           <div className="d-flex w-100 pt-3 pb-3 ps-2">
             <div className="d-flex align-items-center me-5">
-              <input
-                type="radio"
-                name="gender"
-                className=""
-                value="M"
-                onClick={handleGender}
-                d
-              />
+              <input type="radio" name="gender" className="" value="M" />
               <label
                 className="ms-3"
                 name="gender"
@@ -204,13 +158,7 @@ function RegisterAsPatient() {
               </label>
             </div>
             <div className="d-flex align-items-center">
-              <input
-                type="radio"
-                className="me-3"
-                name="gender"
-                value="M"
-                onClick={handleGender}
-              />
+              <input type="radio" className="me-3" name="gender" value="M" />
               <label style={{ color: "#4A525A" }}>Male</label>
             </div>
           </div>
