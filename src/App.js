@@ -43,27 +43,6 @@ function App() {
     });
   return (
     <Provider store={store}>
-      <div className="">
-        <Navbar />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/LoginPage" element={<LoginPage />} />
-            <Route path="/RegisterPage" element={<RegisterPage />} />
-            <Route path="/RegisterAsPatient" element={<RegisterAsPatient />} />
-            <Route path="/RegisterAsDoctor" element={<RegisterAsDoctor />} />
-            <Route path="/ForgotPassword" element={<ForgotPassword />} />
-            <Route
-              path="/ForgotPasswordEmail"
-              element={<ForgotPasswordEmail />}
-            />
-            <Route path="/VerifayEmail" element={<VerifayEmail />} />
-            <Route path="/VerifayPhone" element={<VerifayPhone />} />
-            <Route path="/CreateNewPassword" element={<CreateNewPassword />} />
-            <Route path="/RestPassword" element={<RestPassword />} />
-          </Routes>
-        </BrowserRouter>
-      </div>
       <BrowserRouter>
         <Navbar />
         <Routes>
