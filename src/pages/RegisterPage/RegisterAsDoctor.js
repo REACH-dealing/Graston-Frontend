@@ -1,55 +1,14 @@
-import React, { useReducer, useState } from "react";
+import React, { useState } from "react";
 import "./RegisterPageStyle.css";
 import { Button } from "react-bootstrap";
 import MintButton from "../../Common/MintButton";
-import { reducer } from "../../utils/patientReducer";
-import { registerNurseApi } from "../../api/userApi/userApi";
-import { useNavigate } from "react-router-dom";
-
+import { useTranslation } from "react-i18next";
 function RegisterAsDoctor() {
-  const navigate = useNavigate(); // Navigate to different pages
-
-  const [state, dispatch] = useReducer(reducer, {
-    user: {
-      username: "asdkfslakje7348287adfhu132dsfwhrnfu898u38uujkjjnrnhih66",
-    },
-  });
-
-  // useStates to handle email, password, number, and national id validation
-  const [validateEmail, setValidateEmail] = useState(false);
-  const [validatePassword, setValidatePassword] = useState(false);
-  const [validateId, setValidateId] = useState(false);
-  const [validateNumber, setValidateNumber] = useState(false);
-
-  // Handles the state of gender being choosen
-  const handleGender = (e) => {
-    if (e.target.value === "M") {
-      dispatch({ type: "gender", gender: "M" });
-    } else {
-      dispatch({ type: "gender", gender: "F" });
-    }
+  // const { t } = useTranslation();
+  const [selectGender, setGender] = useState("");
+  const handleGenderType = (gender) => {
+    setGender(gender);
   };
-
-  // handles submtion of registeration form: Validation and API integration
-  const handleSubmit = async () => {
-    if (Object.keys(state.user).length === 11) {
-      console.log(Object.keys(state.user).length);
-      console.log(state);
-      try {
-        const response = await registerNurseApi(state);
-        console.log(response);
-        navigate("/LoginPage");
-        return response;
-      } catch (error) {
-        console.log(error.message);
-      }
-    } else {
-      console.log(Object.keys(state.user).length);
-      console.log(state);
-      console.log("You must fill all required fields");
-    }
-  };
-
   return (
     <div>
       <div className="registerAsPatient">
@@ -58,17 +17,14 @@ function RegisterAsDoctor() {
           Register as physiotherapist{" "}
         </p>
         <form>
-          <div className="d-flex justify-content-between">
+          <div className="EnterNameItems mt-4">
             <div className="d-flex flex-column">
               <label className="fw-bolder mb-2">First Name</label>
               <input
                 type="text"
                 placeholder="Abdullah"
                 required
-                className="nameInput w-100"
-                onChange={(e) =>
-                  dispatch({ type: "firstName", fName: e.target.value })
-                }
+                className="nameInput me-3"
               />
             </div>
             <div className="d-flex flex-column">
@@ -77,99 +33,55 @@ function RegisterAsDoctor() {
                 type="text"
                 placeholder="Ahmed"
                 required
-                className="nameInput w-100"
-                onChange={(e) => {
-                  dispatch({ type: "lastName", lName: e.target.value });
-                }}
+                className="nameInput"
               />
             </div>
           </div>
           <div className="d-flex flex-column x">
-            <label className="fw-bolder mt-3 mb-2">Email</label>
+            <label className="fw-bolder mt-5 mb-2">Email</label>
             <input
               type="email"
               required
               placeholder="Abdullah@gmail.com"
               className="email"
-              onChange={(e) => {
-                dispatch({ type: "email", email: e.target.value });
-                setValidateEmail(!state.user.email ? false : true);
-              }}
-              style={
-                !validateEmail
-                  ? { border: "1px solid red" }
-                  : { border: "none" }
-              }
             />
           </div>
           <div className="d-flex flex-column x">
-            <label className="fw-bolder mt-3 mb-2">Password</label>
+            <label className="fw-bolder mt-5 mb-2">Password</label>
             <input
               type="password"
               required
               placeholder="1234kk@2"
               className="password"
-              onBlur={(e) => {
-                dispatch({ type: "password", password: e.target.value });
-                setValidatePassword(!state.user.password ? false : true);
-              }}
-              style={
-                !validatePassword
-                  ? { border: "1px solid red" }
-                  : { border: "none" }
-              }
             />
           </div>
           <div className="d-flex flex-column">
-            <label className="fw-bolder mt-3 mb-2">Nationality ID</label>
+            <label className="fw-bolder mt-5 mb-2">Nationality ID</label>
             <input
               type=""
               required
               placeholder="3333111100005555"
               className="nationality"
-              onChange={(e) => {
-                dispatch({
-                  type: "national_id",
-                  national_id: e.target.value.toString(),
-                });
-                setValidateId(!state.user.national_id ? false : true);
-              }}
-              style={
-                !validateId ? { border: "1px solid red" } : { border: "none" }
-              }
+              id="Id"
             />
           </div>
           <div className="d-flex flex-column">
-            <label className="fw-bolder mt-3 mb-2">Nationality</label>
-            <select
-              className="nationality"
-              onChange={(e) => {
-                dispatch({ type: "nationality", nationality: e.target.value });
-              }}
-            >
-              <option selected disabled>
-                Choose Your Nationality...
-              </option>
-              <option>Saudi Arabian</option>
-              <option>Egyption</option>
-              <option>Algerian</option>
+            <label className="fw-bolder mt-5 mb-2">Nationality</label>
+            <select className="nationality">
+              <option></option>
+              <option></option>
+              <option></option>
             </select>
           </div>
           <div className="d-flex flex-column">
-            <label className="fw-bolder mt-3 mb-2">Date Of Birth</label>
-            <input
-              type="date"
-              className="nationality"
-              onChange={(e) => {
-                dispatch({ type: "date_of_birth", birth: e.target.value });
-              }}
-            />
+            <label className="fw-bolder mt-5 mb-2">Date Of Birth</label>
+            <input type="date" className="dates" />
           </div>
 
-          <div className="d-flex flex-column">
+          <div className="d-flex flex-column ">
             <label className="fw-bolder mt-5 mb-2">Phone Number</label>
-            <div className="d-flex w-100 mt-3 mb-3 justify-content-between">
-              <div className="d-flex align-items-center align-items-center rounded-2 phoneCode">
+            <div className="d-flex  mt-5 mb-3">
+              <div className="d-flex align-items-center align-items-center phoneCode">
                 <img
                   src="/assets/Group 481318.png"
                   className="pb-2"
@@ -178,82 +90,55 @@ function RegisterAsDoctor() {
                 />
                 <p className="pt-1 ms-1 me-3">+966</p>
               </div>
-              <div className="numberInput">
+              <div>
                 <input
-                  type="number"
+                  type=""
                   placeholder="Your Phone Number"
-                  className="phone"
-                  onChange={(e) => {
-                    dispatch({
-                      type: "phoneNumber",
-                      phoneNumber: e.target.value.toString(),
-                    });
-                    setValidateNumber(!state.user.phone_number ? false : true);
-                  }}
-                  style={
-                    !validateNumber
-                      ? { border: "1px solid red" }
-                      : { border: "none" }
-                  }
+                  className="phone ms-3"
                 />
               </div>
             </div>
           </div>
           <div className="d-flex">
             <div className="d-flex flex-column">
-              <label className="fw-bolder mt-3 mb-2">Country</label>
-              <input
-                className="country"
-                onChange={(e) => {
-                  dispatch({
-                    type: "country",
-                    country: e.target.value,
-                  });
-                }}
-              />
+              <label className="fw-bolder mt-5 mb-2">Country</label>
+              <input className="country" />
             </div>
-            <div className="d-flex flex-column ms-3">
-              <label className="fw-bolder mt-3 mb-2">city</label>
-              <input
-                className="city"
-                onChange={(e) => {
-                  dispatch({
-                    type: "city",
-                    city: e.target.value,
-                  });
-                }}
-              />
+            <div className="d-flex flex-column ms-4">
+              <label className="fw-bolder mt-5 mb-2">city</label>
+              <input className="city" />
             </div>
           </div>
-          <div className="mt-3">
-            <label className="fw-bolder mt-5 mb-2">Gender</label>
-            <div className="d-flex w-100 pt-3 pb-3 ps-2">
-              <div className="d-flex align-items-center me-5">
+          <div>
+            <label className="fw-bolder mt-3 mb-2">Gender</label>
+            <div className="d-flex ">
+              <div className="mt-3 ms-4">
                 <input
                   type="radio"
-                  onClick={handleGender}
-                  value="F"
-                  name="gender"
+                  checked={selectGender === "female"}
+                  onClick={() => handleGenderType("female")}
                   className=""
                 />
                 <label className="ms-3" style={{ color: "#4A525A" }}>
                   Female
                 </label>
               </div>
-              <div className="d-flex align-items-center">
+              <div className="ms-5">
                 <input
                   type="radio"
-                  className="me-3"
-                  onClick={handleGender}
-                  value="F"
-                  name="gender"
+                  checked={selectGender === "male"}
+                  onClick={() => handleGenderType("male")}
+                  className=""
                 />
-                <label style={{ color: "#4A525A" }}>Male</label>
+                <label className="ms-3 mt-3" style={{ color: "#4A525A" }}>
+                  Male
+                </label>
               </div>
             </div>
           </div>
+
           <div>
-            <div className="d-flex flex-column w-100">
+            <div className="d-flex flex-column">
               <label className="fw-bolder mt-5 mb-3">specialization</label>
               <select className="nationality">
                 <option>Choose Your specialization</option>
@@ -266,34 +151,34 @@ function RegisterAsDoctor() {
             <label className="fw-bolder mt-3 mb-2">
               certificates <span style={{ color: "#646464" }}> (optional)</span>
             </label>
-            <div className="d-flex justify-content-between align-items-center w-100 mt-3 mb-3">
-              <div className="fileInput">
+            <div className="d-flex justify-content-center align-items-center mt-3 mb-3">
+              <div>
                 <input
-                  type="file"
+                  type=""
                   placeholder="Upload certificates"
-                  className="certificates w-100"
+                  className="certificates me-2"
                 />
               </div>
-              <div className="d-flex align-items-center justify-content-center rounded-2 phoneCode">
-                <p className="fw-bolder mt-2 ms-3 text-center me-3">+</p>
+              <div className="d-flex align-items-center phoneCode ms-3">
+                <p className="mt-2 ms-3 text-center me-3 ">+</p>
               </div>
             </div>
           </div>
           <div className="d-flex flex-column mt-4 ">
             <label className="fw-bolder mt-3 mb-2">
-              medical accreditations{" "}
+              medical accreditations
               <span style={{ color: "#646464" }}> (optional)</span>
             </label>
-            <div className="d-flex justify-content-between align-items-center w-100 mt-3 mb-3">
-              <div className="fileInput">
+            <div className="d-flex justify-content-center align-items-center mt-3 mb-3">
+              <div>
                 <input
-                  type="file"
-                  placeholder="Upload certificates"
-                  className="certificates w-100"
+                  type=""
+                  placeholder="Upload medical Accreditations"
+                  className="certificates me-2"
                 />
               </div>
-              <div className="d-flex align-items-center justify-content-center rounded-2 phoneCode">
-                <p className="fw-bolder mt-2 ms-3 text-center me-3">+</p>
+              <div className="d-flex align-items-center phoneCode ms-3">
+                <p className="mt-2 ms-3 text-center me-3">+</p>
               </div>
             </div>
           </div>
@@ -303,7 +188,7 @@ function RegisterAsDoctor() {
             <span className="span">privacy policy</span>
           </p>
           <div className="RegisterBtn">
-            <MintButton text={"Register"} onClick={handleSubmit} />
+            <MintButton text={"Register"} />
           </div>
           <h6 className="mt-4">OR</h6>
           <Button
@@ -311,7 +196,7 @@ function RegisterAsDoctor() {
             className="fw-bolder d-block w-100 googleBtn mt-4"
           >
             <img
-              src="/assets/Vector (1).png"
+              src="/assets/google.png"
               className="me-3"
               width={"22px"}
               alt="google"

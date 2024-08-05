@@ -46,23 +46,16 @@ function ForgotPassword() {
             </div>
           </div>
         </div>
-        <Link to={"/VerifayPhone"} className="w-100">
-          <div className="sendCodeBtn mt-3 mb-3">
-            <MintButton text={"Send Code"} />
-          </div>
-        </Link>
-
-        <p className="mt-3 mb-4" style={{ color: "#2F9C95" }}>
-          <span className="me-2" style={{ color: "#646464" }}>
-            Or
-          </span>{" "}
-          <Link to={"/ForgotPasswordEmail"} className="verifay">
-            Verify using your email address
-          </Link>{" "}
-        </p>
-      </div>
+      <Link to={'/VerifayPhone'}>
+        <div className='sendCodeBtn mt-3 mb-3'>
+          <MintButton text={"Send Code"}/>
+        </div>
+      </Link>
+      
+        <p className='mt-3 mb-4' style={{color:"#2F9C95"}} ><span className='text-decoration-none me-2' style={{color:"#646464"}}>Or</span> <Link to={'/ForgotPasswordEmail'} className='verifay'>Verify using your email address</Link> </p>
+      </div >
     </div>
-  );
+  )
 }
 
 export default ForgotPassword;

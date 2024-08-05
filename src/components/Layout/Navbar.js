@@ -1,74 +1,60 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min";
+import { Link } from "react-router-dom";
+import "./ComponentsStyle.css";
+
 function Navbar() {
   return (
-    <div className="nav">
-      <nav className="navbar navbar-expand-lg bg-white p-3 rounded-2">
+    <div className="navbarContainer">
+      <nav className="navbar">
+        {/* 1 */}
         <div>
-          <a className="navbar-brand" href="/">
-            جــــــــــراســــــــــــــتون
-          </a>
+          <Link to={"/"} className="text-decoration-none">
+            <h3 className="logo fw-bolder">جــــــــــراســــــــــــــتون</h3>
+          </Link>
         </div>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse w-100 ms-4" id="navbarNav">
-          <ul className="navbar-nav d-flex justify-content-center w-100">
-            <li className="nav-item active me-3 me-xxl-5">
-              <a className="nav-link" href="/">
-                Home <span className="sr-only"></span>
-              </a>
+        {/* 2 */}
+        <div>
+          <ul className="list mt-3">
+            <li className="list__item">
+              <Link className="list__item__link active" to="/">
+                Home
+              </Link>
             </li>
-            <li className="nav-item me-3 me-xxl-5">
-              <a className="nav-link" href="/">
+            <li className="list__item">
+              <Link className="list__item__link not-active" to="/">
                 Shop
-              </a>
+              </Link>
             </li>
-            <li className="nav-item me-3 me-xxl-5">
-              <a className="nav-link" href="/">
+            <li className="list__item">
+              <Link className="list__item__link not-active" to="/">
                 About Us
-              </a>
-              {/* <a className="nav-link" href="/ForgotPassword">About Us</a> */}
-              {/* <a className="nav-link" href="/ForgotPasswordEmail">About Us</a> */}
-              {/* <a className="nav-link" href="/VerifayPhone">About Us</a> */}
-              {/* <a className="nav-link" href="/VerifayEmail">About Us</a> */}
-              {/* <a className="nav-link" href="/CreateNewPassword">About Us</a> */}
-              {/* <a className="nav-link" href="/RestPassword">About Us</a> */}
+              </Link>
             </li>
-            <li className="nav-item me-3 me-xxl-5">
-              <a className="nav-link disabled" href="/">
+            <li className="list__item">
+              <Link className="list__item__link not-active" to="/">
                 Contact Us
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
-        <div
-          className="collapse navbar-collapse navbar-nav justify-content-center"
-          id="navbarNav"
-        >
-          <p className="nav-item active me-3 text-center">
-            <a className="nav-link" href="LoginPage">
-              Login
-            </a>
-          </p>
-          <p className="nav-item active">
-            <a className="nav-link" href="RegisterPage">
-              Register
-            </a>
-          </p>
+
+        {/* 3 */}
+        <div className="">
+          <Link to={"/LoginPage"} className="link">
+            <button className="me-4">Login</button>
+          </Link>
+          <Link to={"/RegisterPage"} className="link">
+            <button className="">Sign Up</button>
+          </Link>
         </div>
 
-        <div className="collapse navbar-collapse ms-5 ps-5" id="navbarNav">
-          <p className="m-0">Language</p>
+        {/* 4 */}
+        <div className="d-flex justify-content-center align-items-center">
+          <img src="/assets/translate.png" alt="translate" />
+          <select className="language ms-3">
+            <option>العربية</option>
+            <option>English</option>
+          </select>
         </div>
       </nav>
     </div>

@@ -1,7 +1,5 @@
 import React from 'react';
 import "./ComponentsStyle.css";
-import { Button } from 'react-bootstrap';
-// import CommenButton from '../../CommonComponents/CommonButton';
 function IntroSection() {
   return (
     <div className='introSection '>
@@ -10,7 +8,6 @@ function IntroSection() {
         <h1 className='mb-4'>Your Health, Our Priority.</h1>
         <p className='w-50'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id pellentesque ante. Curabitur imperdiet neque ligula, sit amet mollis lectus luctus id. Cras sit amet orci in erat facilisis finibus. Cras non nulla mauris</p>
         <div className='btnDiv'>
-          {/* <CommenButton text="Book Now"/> */}
         </div>
       </div>
       <div className='introSection__item2'>
