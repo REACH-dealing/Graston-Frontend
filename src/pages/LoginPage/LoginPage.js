@@ -9,15 +9,13 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 function LoginPage() {
   const emailRe = /^[\w.%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-  const passwordRe =
-    /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [passwordVisible, setPasswordVisible] = useState(false); 
+  const [passwordVisible, setPasswordVisible] = useState(false);
 
   const handleLogin = async () => {
-    if (!emailRe.test(email) || !passwordRe.test(password)) {
+    if (!emailRe.test(email) || password.length > 6) {
       alert("Please enter a valid email address or password.");
     } else {
       setLoading(true);
@@ -47,7 +45,9 @@ function LoginPage() {
           <div className="loginFormContainer">
             <form action="" className="loginForm">
               <div className="d-flex flex-column">
-                <label htmlFor="email" className="fw-bolder mb-3">Email</label>
+                <label htmlFor="email" className="fw-bolder mb-3">
+                  Email
+                </label>
                 <input
                   id="email"
                   placeholder="Enter Your Email"
@@ -59,7 +59,9 @@ function LoginPage() {
                 />
               </div>
               <div className="d-flex flex-column position-relative">
-                <label htmlFor="password" className="fw-bolder mb-3 mt-4">Password</label>
+                <label htmlFor="password" className="fw-bolder mb-3 mt-4">
+                  Password
+                </label>
                 <input
                   id="password"
                   placeholder="1234kk@2"
@@ -88,7 +90,10 @@ function LoginPage() {
                 <MintButton text="Login" onClick={handleLogin} />
               </div>
               <h6 className="fw-bolder mt-5">OR</h6>
-              <Button variant="light" className="fw-bolder d-block googleBtn mt-4">
+              <Button
+                variant="light"
+                className="fw-bolder d-block googleBtn mt-4"
+              >
                 <img
                   src="/assets/images/google.png"
                   className="me-3"

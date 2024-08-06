@@ -1,206 +1,337 @@
-import React, { useState } from "react";
-import React, { useState } from "react";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./RegisterPageStyle.css";
-import { Button } from "react-bootstrap";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import MintButton from "../../Common/MintButton";
+import { registerPatientApi } from "../../api/userApi/userApi";
 function RegisterAsPatient() {
-  const [password, setPassword] = useState("");
-  const [passwordVisible, setPasswordVisible] = useState(false);
-  const [selectGender, setGender] = useState("");
-  const handleGenderType = (gender) => {
-    setGender(gender);
+  const navigate = useNavigate();
+  var newUser = {
+    user: {},
+  };
+  const initialValues = {
+    first_name: "",
+    last_name: "",
+    email: "",
+    password: "",
+    national_id: null,
+    nationality: "",
+    date_of_birth: "mm/dd/yyyy",
+    phone_number: null,
+    country: "",
+    city: "",
+    gender: "",
+    chronic_diseases: null,
+    medical_report: null,
+  };
+
+  const validationSchema = Yup.object({
+    first_name: Yup.string().required("required"),
+    last_name: Yup.string().required("required"),
+    email: Yup.string().email("Invalid email format").required("Required"),
+    password: Yup.string()
+      .required("Required")
+      .min(6, "Password must be at least 6 characters"),
+    national_id: Yup.number()
+      .required("required")
+      .test(
+        "len",
+        "Must be exactly 11 digits",
+        (val) => val && val.toString().length === 11
+      ),
+    nationality: Yup.string().required("required"),
+    date_of_birth: Yup.date().required("required"),
+    phone_number: Yup.number()
+      .required("required")
+      .test(
+        "len",
+        "Must be exactly 11 digits",
+        (val) => val && val.toString().length === 11
+      ),
+    country: Yup.string().min(3, "At least 3 letters").required("Required"),
+    city: Yup.string().min(3, "At least 3 letters").required("required"),
+    gender: Yup.string().required("Required"),
+    chronic_diseases: Yup.mixed()
+      .nullable()
+      .notRequired()
+      .test("fileFormat", "Only PDF files are accepted", (value) => {
+        if (!value) return true; // Allow empty values
+        return value && value.type === "application/pdf";
+      }),
+    medical_report: Yup.mixed()
+      .nullable()
+      .notRequired()
+      .test("fileFormat", "Only PDF files are accepted", (value) => {
+        if (!value) return true; // Allow empty values
+        return value && value.type === "application/pdf";
+      }),
+  });
+
+  const onSubmit = async (values) => {
+    console.log("Form data", values);
+    for (const property in values) {
+      console.log(property, values[property]);
+      if (property !== "chronic_diseases" && property !== "medical_report") {
+        newUser.user[`${property}`] = values[property];
+      } else {
+        if (values[property] !== null) {
+          newUser[`${property}`] = values[property];
+        }
+      }
+    }
+    console.log(newUser);
+    try {
+      const response = await registerPatientApi(newUser);
+      console.log(response);
+      navigate("/loginPage");
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
     <div className="registerAsPatient">
       <h2 className="text-center">جــــــــــراســــــــــــــتون</h2>
       <p className="fw-bolder text-center mb-5 mt-3">Register as Patient </p>
-    <div className="registerAsPatient">
-      <h2 className="text-center">جــــــــــراســــــــــــــتون</h2>
-      <p className="fw-bolder text-center mb-5 mt-3">Register as Patient </p>
-      <form>
-        <div className="EnterNameItems">
-          <div className="d-flex flex-column">
-            <label className="fw-bolder mb-2 label">First Name</label>
-            <input
-              type="text"
-              placeholder="Abdullah"
-              required
-              className="nameInput me-3"
-            />
-        <div className="EnterNameItems">
-          <div className="d-flex flex-column">
-            <label className="fw-bolder mb-2 label">First Name</label>
-            <input
-              type="text"
-              placeholder="Abdullah"
-              required
-              className="nameInput me-3"
-            />
-          </div>
-          <div className="d-flex flex-column">
-            <label className="fw-bolder mb-2 lastName label">Last Name</label>
-            <input
-              type="text"
-              placeholder="Ahmed"
-              required
-              className="nameInput"
-            />
-          <div className="d-flex flex-column">
-            <label className="fw-bolder mb-2 lastName label">Last Name</label>
-            <input
-              type="text"
-              placeholder="Ahmed"
-              required
-              className="nameInput"
-            />
-          </div>
-        </div>
-        <div className="d-flex flex-column x">
-          <label className="fw-bolder mt-5 mb-2">Email</label>
-          <input
-            type="email"
-            required
-            placeholder="Abdullah@gmail.com"
-            className="email"
-          />
-        </div>
-        <div className="d-flex flex-column position-relative">
-          <label htmlFor="password" className="fw-bolder mb-3 mt-4">
-            Password
-          </label>
-          <input
-            id="password"
-            placeholder="1234kk@2"
-            type={passwordVisible ? "text" : "password"}
-            required
-            className="passwordFiled"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-          />
-          <span
-            className="passwordToggleIcon"
-            onClick={() => setPasswordVisible(!passwordVisible)}
-          >
-            {passwordVisible ? <FaEye /> : <FaEyeSlash />}
-          </span>
-        </div>
-        <div className="d-flex flex-column">
-          <label className="fw-bolder mt-5 mb-2">Nationality ID</label>
-          <input
-            type=""
-            required
-            placeholder="3333111100005555"
-            className="nationality"
-            id="Id"
-          />
-        <div className="d-flex flex-column">
-          <label className="fw-bolder mt-5 mb-2">Nationality ID</label>
-          <input
-            type=""
-            required
-            placeholder="3333111100005555"
-            className="nationality"
-            id="Id"
-          />
-        </div>
-        <div className="d-flex flex-column">
-          <label className="fw-bolder mt-5 mb-2">Nationality</label>
-          <select className="nationality">
-            <option disabled selected>
-              Choose Your Nationality
-            </option>
-            <option>Saudi Arabian</option>
-            <option>Egyption</option>
-            <option>Algerian</option>
-          </select>
-        </div>
-        <div className="d-flex flex-column">
-          <label className="fw-bolder mt-5 mb-2">Date Of Birth</label>
-          <input type="date" className="dates" />
-        <div className="d-flex flex-column">
-          <label className="fw-bolder mt-5 mb-2">Date Of Birth</label>
-          <input type="date" className="dates" />
-        </div>
-
-        <div className="d-flex flex-column ">
-          <label className="fw-bolder mt-5 mb-2">Phone Number</label>
-          <div className="d-flex  mt-3 mb-3">
-            <div className="d-flex align-items-center justify-contenr-center phoneCode">
-              <img
-                src="/assets/images/Group 481318.png"
-                className="pb-2 "
-                width={"25px"}
-                alt="phone number"
-              />
-              <p className="pt-1 ms-1 me-3 fw-bolder">+966</p>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={onSubmit}
+      >
+        {({ setFieldValue }) => (
+          <Form>
+            <div className="d-flex justify-cotent-between">
+              <div className="pe-2">
+                <label htmlFor="first_name" className="d-block">
+                  First Name
+                </label>
+                <Field
+                  type="text"
+                  id="first_name"
+                  name="first_name"
+                  className="d-block"
+                />
+                <ErrorMessage
+                  name="first_name"
+                  className="text-danger"
+                  component="div"
+                />
+              </div>
+              <div className="ps-2">
+                <label htmlFor="last_name" className="d-block">
+                  Last Name
+                </label>
+                <Field
+                  type="text"
+                  id="last_name"
+                  name="last_name"
+                  className="d-block"
+                />
+                <ErrorMessage
+                  name="last_name"
+                  className="text-danger"
+                  component="div"
+                />
+              </div>
             </div>
             <div>
-              <input
-                type=""
-                placeholder="Your Phone Number"
-                className="phone ms-3"
-              />
-            </div>
-          </div>
-        </div>
-        <div className="d-flex justify-content-between mt-5">
-          <div className="d-flex flex-column">
-            <label className="fw-bolder mb-2">Country</label>
-            <input className="country" />
-          </div>
-          <div className="d-flex flex-column cityItem">
-            <label className="fw-bolder mb-2">city</label>
-            <input className="city" />
-          </div>
-        </div>
-        <div>
-          <label className="fw-bolder mt-5 mb-2">Gender</label>
-          <div className="d-flex ">
-            <div className="mt-3 ms-4">
-              <input
-                type="radio"
-                checked={selectGender === "female"}
-                onClick={() => handleGenderType("female")}
-                className=""
-              />
-              <label className="ms-3" style={{ color: "#4A525A" }}>
-                Female
+              <label htmlFor="email" className="d-block">
+                Email
               </label>
-            </div>
-            <div className="ms-5">
-              <input
-                type="radio"
-                className=""
-                checked={selectGender === "male"}
-                onClick={() => handleGenderType("male")}
+              <Field type="email" id="email" name="email" className="d-block" />
+              <ErrorMessage
+                name="email"
+                className="text-danger"
+                component="div"
               />
-              <label className="ms-3 mt-3" style={{ color: "#4A525A" }}>
+            </div>
+            <div>
+              <label htmlFor="password" className="d-block">
+                Password
+              </label>
+              <Field
+                type="password"
+                id="password"
+                name="password"
+                className="d-block"
+              />
+              <ErrorMessage
+                name="password"
+                className="text-danger"
+                component="div"
+              />
+            </div>
+            <div>
+              <label htmlFor="national_id" className="d-block">
+                Nationality ID
+              </label>
+              <Field
+                type="text"
+                id="national_id"
+                name="national_id"
+                className="d-block"
+              />
+              <ErrorMessage
+                name="national_id"
+                className="text-danger"
+                component="div"
+              />
+            </div>
+            <div>
+              <label htmlFor="nationality" className="d-block">
+                Nationality
+              </label>
+              <Field
+                as="select"
+                type="select"
+                id="nationality"
+                name="nationality"
+                className="d-block"
+              >
+                <option value="" selected disabled>
+                  Choose Your Natonality...
+                </option>
+                <option value="Saudi arabian">Saudi Arabian</option>
+                <option value="Egytion">Egytion</option>
+                <option value="Algerian">Algerian</option>
+              </Field>
+              <ErrorMessage
+                name="nationality"
+                className="text-danger"
+                component="div"
+              />
+            </div>
+            <div>
+              <label htmlFor="date_of_birth" className="d-block">
+                Birth Of Date
+              </label>
+              <Field
+                type="date"
+                id="date_of_birth"
+                name="date_of_birth"
+                className="d-block"
+              />
+              <ErrorMessage
+                name="date_of_birth"
+                className="text-danger"
+                component="div"
+              />
+            </div>
+            <div>
+              <label htmlFor="phone_number" className="d-block">
+                Phone Number
+              </label>
+              <div className="d-inline-block">+966</div>
+              <Field
+                type="text"
+                id="phone_number"
+                name="phone_number"
+                className="d-inline-block"
+              />
+              <ErrorMessage
+                name="phone_number"
+                className="text-danger"
+                component="div"
+              />
+            </div>
+            <div className="d-flex justify-content-between w-100">
+              <div className="pe-2">
+                <label htmlFor="country" className="d-block">
+                  Country
+                </label>
+                <Field
+                  type="text"
+                  id="country"
+                  name="country"
+                  className="d-block"
+                />
+                <ErrorMessage
+                  name="country"
+                  className="text-danger"
+                  component="div"
+                />
+              </div>
+              <div>
+                <label htmlFor="city" className="d-block">
+                  City
+                </label>
+                <Field type="text" id="city" name="city" className="d-block" />
+                <ErrorMessage
+                  name="city"
+                  className="text-danger"
+                  component="div"
+                />
+              </div>
+            </div>
+            <div>
+              <label className="d-block">Gender</label>
+              <div className="d-inline-block">
+                <Field
+                  type="radio"
+                  name="gender"
+                  value="M"
+                  className="ms-2 me-2"
+                />{" "}
                 Male
-              </label>
+              </div>
+              <div className="d-inline-block">
+                <Field type="radio" name="gender" value="F" className="me-2" />{" "}
+                Female
+              </div>
+              <ErrorMessage
+                name="gender"
+                className="text-danger"
+                component="div"
+              />
             </div>
-          </div>
-        </div>
-        <h6 className="mt-5 fw-bolder">OR</h6>
-        <Button variant="light" className="fw-bolder d-block googleBtn mt-4">
-          <img
-            src="/assets/images/google.png"
-            className="me-3"
-            width={"22px"}
-            alt="google"
-          />
-          Login With Google
-        </Button>
-        <Button className=" facebookBtn fw-bolder d-block mt-5">
-          <img
-            src="/assets/images/facebook icon.png"
-            className="me-3"
-            width={"22px"}
-            alt="facebook"
-          />
-          Login With Facebook
-        </Button>
-      </form>
+            <div>
+              <label htmlFor="chronic_diseases" className="d-block">
+                Chronic Diseases (optional)
+              </label>
+              <input
+                id="chronic_diseases"
+                name="chronic_diseases"
+                type="file"
+                accept="application/pdf"
+                onChange={(event) => {
+                  setFieldValue("pdfFile", event.currentTarget.files[0]);
+                }}
+              />
+              <ErrorMessage
+                name="chronic_diseases"
+                className="text-danger"
+                component="div"
+              />
+            </div>
+            <div>
+              <label htmlFor="medical_report" className="d-block">
+                Medical Report (optional)
+              </label>
+              <input
+                id="medical_report"
+                name="medical_report"
+                type="file"
+                accept="application/pdf"
+                onChange={(event) => {
+                  setFieldValue("pdfFile", event.currentTarget.files[0]);
+                }}
+              />
+              <ErrorMessage
+                name="medical_report"
+                className="text-danger"
+                component="div"
+              />
+            </div>
+            <MintButton text="Register" btnType="submit" />
+          </Form>
+        )}
+      </Formik>
+      <div className="separator fw-bold fs-4">OR</div>
+      <div className="loginWith">
+        <div className="loginWithGoogle mb-5">Login with Google</div>
+        <div className="loginWithFacebook">Login with Facebook</div>
+      </div>
     </div>
   );
 }

@@ -1,14 +1,14 @@
 import React from "react";
 import "./style.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
-function MintButton({text , onClick}) {
+import "bootstrap/dist/css/bootstrap.min.css";
+function MintButton({ text, btnType, onClick }) {
   return (
-    <div>
-       <button onClick={onClick} className='MintButton'>
-         {text}
-        </button>
-    </div>
-  )
+    <>
+      <button type={btnType} onClick={onClick} className="MintButton w-100">
+        {text}
+      </button>
+    </>
+  );
 }
 
 export default MintButton;

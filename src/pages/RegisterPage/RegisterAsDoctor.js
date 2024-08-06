@@ -1,157 +1,363 @@
-import React, { useState } from "react";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./RegisterPageStyle.css";
-import { Button } from 'react-bootstrap';
-import MintButton from '../../Common/MintButton';
-// import { useTranslation } from 'react-i18next';
-import { FaEye, FaEyeSlash } from "react-icons/fa";
-function RegisterAsDoctor() {
-  const [password, setPassword] = useState("");
-  const [passwordVisible, setPasswordVisible] = useState(false); 
-  const [selectGender , setGender] = useState('');
-  const handleGenderType = (gender)=>{
-    setGender(gender);
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import MintButton from "../../Common/MintButton";
+import { registerNurseApi } from "../../api/userApi/userApi";
+function RegisterAsPatient() {
+  const navigate = useNavigate();
+  var newUser = {
+    user: {},
   };
-  return (
-    <div>
-      <div className='registerAsPatient'>
-      <h2 className='text-center'>جــــــــــراســــــــــــــتون</h2>
-      <p className='fw-bolder text-center mb-5 mt-3'>Register as physiotherapist </p>
-      <form>
-        <div className='EnterNameItems mt-4'>
-          <div className='d-flex flex-column'>
-            <label className='fw-bolder mb-2'>First Name</label>
-            <input type='text' placeholder='Abdullah' required className='nameInput me-3'/>
-          </div>
-          <div className='d-flex flex-column'>
-            <label className='fw-bolder mb-2'>Last Name</label>
-            <input type='text' placeholder='Ahmed' required className='nameInput'/>
-          </div>
-        </div>
-        <div className='d-flex flex-column x'>
-          <label className='fw-bolder mt-5 mb-2'>Email</label>
-          <input type='email' required placeholder='Abdullah@gmail.com' className='email'/>
-        </div>
-        <div className="d-flex flex-column position-relative">
-          <label htmlFor="password" className="fw-bolder mb-3 mt-4">Password</label>
-            <input
-              id="password"
-              placeholder="1234kk@2"
-              type={passwordVisible ? "text" : "password"}
-              required
-              className="passwordFiled"
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
-            />
-            <span
-              className="passwordToggleIcon"
-              onClick={() => setPasswordVisible(!passwordVisible)}
-              >
-              {passwordVisible ? <FaEye /> : <FaEyeSlash />}
-            </span>
-        </div>
-        <div className='d-flex flex-column'>
-          <label className='fw-bolder mt-5 mb-2'>Nationality ID</label>
-          <input type='' required placeholder='3333111100005555' className='nationality' id='Id'/>
-        </div>
-        <div className='d-flex flex-column'>
-          <label className='fw-bolder mt-5 mb-2'>Nationality</label>
-          <select className='nationality' >
-            <option></option>
-            <option></option>
-            <option></option>
-          </select>
-        </div>
-        <div className='d-flex flex-column'>
-          <label className='fw-bolder mt-5 mb-2'>Date Of Birth</label>
-            <input type='date' className='dates'/>
-        </div>
+  const initialValues = {
+    first_name: "",
+    last_name: "",
+    email: "",
+    password: "",
+    national_id: null,
+    nationality: "",
+    date_of_birth: "mm/dd/yyyy",
+    phone_number: null,
+    country: "",
+    city: "",
+    gender: "",
+    specialization: "",
+    certeficates: null,
+    medical_accreditations: null,
+  };
 
-        <div className='d-flex flex-column '>
-          <label className='fw-bolder mt-5 mb-2'>Phone Number</label>
-          <div className='d-flex  mt-5 mb-3'>
-            <div className='d-flex align-items-center align-items-center phoneCode'>
-              <img src='/assets/images/Group 481318.png' className='pb-2' width={'25px'} alt='phone number'/>
-              <p className='pt-1 ms-1 me-3'>+966</p>
+  const validationSchema = Yup.object({
+    first_name: Yup.string().required("required"),
+    last_name: Yup.string().required("required"),
+    email: Yup.string().email("Invalid email format").required("Required"),
+    password: Yup.string()
+      .required("Required")
+      .min(6, "Password must be at least 6 characters"),
+    national_id: Yup.number()
+      .required("required")
+      .test(
+        "len",
+        "Must be exactly 11 digits",
+        (val) => val && val.toString().length === 11
+      ),
+    nationality: Yup.string().required("required"),
+    date_of_birth: Yup.date().required("required"),
+    phone_number: Yup.number()
+      .required("required")
+      .test(
+        "len",
+        "Must be exactly 11 digits",
+        (val) => val && val.toString().length === 11
+      ),
+    country: Yup.string().min(3, "At least 3 letters").required("Required"),
+    city: Yup.string().min(3, "At least 3 letters").required("required"),
+    gender: Yup.string().required("Required"),
+    specialization: Yup.string().required("required"),
+    certeficates: Yup.mixed()
+      .nullable()
+      .notRequired()
+      .test("fileFormat", "Only PDF files are accepted", (value) => {
+        if (!value) return true; // Allow empty values
+        return value && value.type === "application/pdf";
+      }),
+    medical_accreditations: Yup.mixed()
+      .nullable()
+      .notRequired()
+      .test("fileFormat", "Only PDF files are accepted", (value) => {
+        if (!value) return true; // Allow empty values
+        return value && value.type === "application/pdf";
+      }),
+  });
+
+  const onSubmit = async (values) => {
+    console.log("Form data", values);
+    for (const property in values) {
+      console.log(property, values[property]);
+      if (property !== "chronic_diseases" && property !== "medical_report") {
+        newUser.user[`${property}`] = values[property];
+      } else {
+        if (values[property] !== null) {
+          newUser[`${property}`] = values[property];
+        }
+      }
+    }
+    console.log(newUser);
+    try {
+      const response = await registerNurseApi(newUser);
+      console.log(response);
+      navigate("/loginPage");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  return (
+    <div className="registerAsPatient">
+      <h2 className="text-center">جــــــــــراســــــــــــــتون</h2>
+      <p className="fw-bolder text-center mb-5 mt-3">
+        Register as Physiotherapist{" "}
+      </p>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={onSubmit}
+      >
+        {({ setFieldValue }) => (
+          <Form>
+            <div className="d-flex justify-cotent-between">
+              <div className="pe-2">
+                <label htmlFor="first_name" className="d-block">
+                  First Name
+                </label>
+                <Field
+                  type="text"
+                  id="first_name"
+                  name="first_name"
+                  className="d-block"
+                />
+                <ErrorMessage
+                  name="first_name"
+                  className="text-danger"
+                  component="div"
+                />
+              </div>
+              <div className="ps-2">
+                <label htmlFor="last_name" className="d-block">
+                  Last Name
+                </label>
+                <Field
+                  type="text"
+                  id="last_name"
+                  name="last_name"
+                  className="d-block"
+                />
+                <ErrorMessage
+                  name="last_name"
+                  className="text-danger"
+                  component="div"
+                />
+              </div>
             </div>
             <div>
-              <input type='' placeholder='Your Phone Number' className='phone ms-3'/>
+              <label htmlFor="email" className="d-block">
+                Email
+              </label>
+              <Field type="email" id="email" name="email" className="d-block" />
+              <ErrorMessage
+                name="email"
+                className="text-danger"
+                component="div"
+              />
             </div>
-          </div>
-        </div>
-        <div className='d-flex'>
-          <div className='d-flex flex-column'>
-            <label className='fw-bolder mt-5 mb-2'>Country</label>
-            <input className='country'/>
-          </div>
-          <div className='d-flex flex-column ms-3'>
-            <label className='fw-bolder mt-5 mb-2'>city</label>
-            <input className='city'/>
-          </div>
-        </div>
-        <div>
-          <label className='fw-bolder mt-5 mb-2'>Gender</label>
-          <div className='d-flex '>
-            <div className='mt-3 ms-4'>
-              <input type='radio'
-              checked={selectGender === 'female'}
-              onClick={()=>handleGenderType('female')}
-               className=''/>
-              <label className='ms-3' style={{color:"#4A525A"}}>Female</label>
+            <div>
+              <label htmlFor="password" className="d-block">
+                Password
+              </label>
+              <Field
+                type="password"
+                id="password"
+                name="password"
+                className="d-block"
+              />
+              <ErrorMessage
+                name="password"
+                className="text-danger"
+                component="div"
+              />
+            </div>
+            <div>
+              <label htmlFor="national_id" className="d-block">
+                Nationality ID
+              </label>
+              <Field
+                type="text"
+                id="national_id"
+                name="national_id"
+                className="d-block"
+              />
+              <ErrorMessage
+                name="national_id"
+                className="text-danger"
+                component="div"
+              />
+            </div>
+            <div>
+              <label htmlFor="nationality" className="d-block">
+                Nationality
+              </label>
+              <Field
+                as="select"
+                type="select"
+                id="nationality"
+                name="nationality"
+                className="d-block"
+              >
+                <option value="" selected disabled>
+                  Choose Your Natonality...
+                </option>
+                <option value="Saudi arabian">Saudi Arabian</option>
+                <option value="Egytion">Egytion</option>
+                <option value="Algerian">Algerian</option>
+              </Field>
+              <ErrorMessage
+                name="nationality"
+                className="text-danger"
+                component="div"
+              />
+            </div>
+            <div>
+              <label htmlFor="date_of_birth" className="d-block">
+                Birth Of Date
+              </label>
+              <Field
+                type="date"
+                id="date_of_birth"
+                name="date_of_birth"
+                className="d-block"
+              />
+              <ErrorMessage
+                name="date_of_birth"
+                className="text-danger"
+                component="div"
+              />
+            </div>
+            <div>
+              <label htmlFor="phone_number" className="d-block">
+                Phone Number
+              </label>
+              <div className="d-flex justify-content-between w-100">
+                <div id="phoneNumber">+966</div>
+                <Field type="text" id="phone_number" name="phone_number" />
               </div>
-            <div className='ms-5'>
-              <input type='radio' 
-              checked={selectGender === 'male'}
-              onClick={()=>handleGenderType('male')}
-              className=''/>
-              <label className='ms-3 mt-3' style={{color:"#4A525A"}}>Male</label>
+              <ErrorMessage
+                name="phone_number"
+                className="text-danger"
+                component="div"
+              />
             </div>
-          </div>
-        </div>
-
-        <div>
-        <div className='d-flex flex-column'>
-          <label className='fw-bolder mt-5 mb-3'>specialization
-          </label>
-          <select className='nationality'>
-            <option>Choose Your specialization</option>
-            <option></option>
-            <option></option>
-          </select>
-        </div>
-        </div>
-        <div className='d-flex flex-column mt-4 '>
-          <label className='fw-bolder mt-3 mb-2'>certificates <span style={{color:"#646464"}}> (optional)</span></label>
-          <div className='d-flex justify-content-center align-items-center mt-3 mb-3'>
-          <div>
-          <input type='' placeholder='Upload certificates' className='certificates me-2'/>
-          </div>
-          <div className='d-flex align-items-center phoneCode ms-3'>
-            <p className='mt-2 ms-3 text-center me-3 '>+</p>
-          </div>
-          </div>
-        </div>
-        <div className='d-flex flex-column mt-4 '>
-          <label className='fw-bolder mt-3 mb-2'>medical accreditations<span style={{color:"#646464"}}>  (optional)</span></label>
-          <div className='d-flex justify-content-center align-items-center mt-3 mb-3'>
-          <div>
-          <input type='' placeholder='Upload medical Accreditations' className='certificates me-2'/>
-          </div>
-          <div className='d-flex align-items-center phoneCode ms-3'>
-            <p className='mt-2 ms-3 text-center me-3'>+</p>
-          </div>
-          </div>
-        </div>
-        <p className='text-center fw-bolder mt-5'>By continuing, you agree graston's <span className='span'>Terms of use</span> And <span className='span'>privacy policy</span></p>
-        <div className='RegisterBtn'>
-          <MintButton text={'Register'}/>
-        </div>
-        <h6 className='mt-5 fw-bolder'>OR</h6>
-              <Button variant='light' className='fw-bolder d-block w-100 googleBtn mt-4'><img src='/assets/images/google.png' className='me-3' width={'22px'} alt='google'/>Login With Google</Button>
-              <Button className=' facebookBtn fw-bolder d-block mt-5'><img src='/assets/images/facebook icon.png' className='me-3' width={'22px'} alt='facebook'/>Login With Facebook</Button>
-      </form>
+            <div className="d-flex justify-content-between w-100">
+              <div className="pe-2">
+                <label htmlFor="country" className="d-block">
+                  Country
+                </label>
+                <Field
+                  type="text"
+                  id="country"
+                  name="country"
+                  className="d-block"
+                />
+                <ErrorMessage
+                  name="country"
+                  className="text-danger"
+                  component="div"
+                />
+              </div>
+              <div>
+                <label htmlFor="city" className="d-block">
+                  City
+                </label>
+                <Field type="text" id="city" name="city" className="d-block" />
+                <ErrorMessage
+                  name="city"
+                  className="text-danger"
+                  component="div"
+                />
+              </div>
+            </div>
+            <div>
+              <label className="d-block">Gender</label>
+              <div className="d-inline-block">
+                <Field
+                  type="radio"
+                  name="gender"
+                  value="M"
+                  className="ms-2 me-2"
+                />{" "}
+                Male
+              </div>
+              <div className="d-inline-block">
+                <Field type="radio" name="gender" value="F" className="me-2" />{" "}
+                Female
+              </div>
+              <ErrorMessage
+                name="gender"
+                className="text-danger"
+                component="div"
+              />
+            </div>
+            <div>
+              <label htmlFor="specialization" className="d-block">
+                Specialization
+              </label>
+              <Field
+                as="select"
+                type="select"
+                id="specialization"
+                name="specialization"
+                className="d-block"
+              >
+                <option value="" selected disabled>
+                  Choose Your Specialization...
+                </option>
+                <option value="Specialization 01">Specialization 01</option>
+                <option value="Specialization 02">Specialization 02</option>
+                <option value="Specialization 03">Specialization 03</option>
+              </Field>
+              <ErrorMessage
+                name="specialization"
+                className="text-danger"
+                component="div"
+              />
+            </div>
+            <div>
+              <label htmlFor="certeficates" className="d-block">
+                Certeficates (optional)
+              </label>
+              <input
+                id="certeficates"
+                name="certeficates"
+                type="file"
+                accept="application/pdf"
+                onChange={(event) => {
+                  setFieldValue("pdfFile", event.currentTarget.files[0]);
+                }}
+              />
+              <ErrorMessage
+                name="certeficates"
+                className="text-danger"
+                component="div"
+              />
+            </div>
+            <div>
+              <label htmlFor="medical_accreditations" className="d-block">
+                Medical accreditations (optional)
+              </label>
+              <input
+                id="medical_accreditations"
+                name="medical_accreditations"
+                type="file"
+                accept="application/pdf"
+                onChange={(event) => {
+                  setFieldValue("pdfFile", event.currentTarget.files[0]);
+                }}
+              />
+              <ErrorMessage
+                name="medical_accreditations"
+                className="text-danger"
+                component="div"
+              />
+            </div>
+            <MintButton text="Register" btnType="submit" />
+          </Form>
+        )}
+      </Formik>
+      <div className="separator fw-bold fs-4">OR</div>
+      <div className="loginWith">
+        <div className="loginWithGoogle mb-5">Login with Google</div>
+        <div className="loginWithFacebook">Login with Facebook</div>
+      </div>
     </div>
-    </div>
-  )
+  );
 }
-
-export default RegisterAsDoctor;
+export default RegisterAsPatient;

@@ -3,7 +3,7 @@
   --font-familyCairo: "Cairo", sans-serif;
   --font-familyRoboto: "Roboto", sans-serif;
   --font-familyNotoNastaliqUrdu: Noto Nastaliq Urdu;
-  --main-color : #2f9c95;
+  --main-color: #2f9c95;
 }
 /* register style */
 .registetrPageContainer {
@@ -18,11 +18,11 @@
   color: var(--main-color);
   font-size: 50px;
 }
-.registetrPageContainer__item1 p{
-  color: #FFFFFF;
+.registetrPageContainer__item1 p {
+  color: #ffffff;
   line-height: 30px;
 }
-.registerPageContainer__item2{
+.registerPageContainer__item2 {
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -77,7 +77,7 @@
   bottom: 60px;
   left: 25px;
 }
-.loginBtn button{
+.loginBtn button {
   width: 390px;
 }
 .physiotherapist {
@@ -91,7 +91,7 @@
   justify-content: end;
   position: relative;
 }
-.contunueBtn button{
+.contunueBtn button {
   width: 390px;
 }
 /* end of register style */
@@ -100,8 +100,8 @@
 .cityItem {
   margin-left: 10px;
 }
-.registerAsPatient{
-  padding: 50px 0px 100px 0px ;
+.registerAsPatient {
+  padding: 50px 0px 100px 0px;
   max-width: 25%;
   margin: auto;
   font-family: var(--font-familyRoboto);
@@ -111,19 +111,24 @@
   color: #2f9c95;
   font-size: 40px;
 }
-.EnterNameItems{
+.EnterNameItems {
   display: flex;
 }
- input::placeholder{
+input::placeholder {
   font-size: 13px;
 }
-label{
+label {
   font-size: 14px;
 }
-.city,.country{
+.city,
+.country {
   width: 185px;
 }
-.registerAsPatient [type="text"] ,.email ,.nationality,.country ,.city {
+.registerAsPatient [type="text"],
+.email,
+.nationality,
+.country,
+.city {
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -136,14 +141,15 @@ label{
   top: 103px;
   left: 67px;
 }
-span{
+span {
   color: var(--main-color);
   text-decoration: underline;
 }
-.email ,  .nationality{
+.email,
+.nationality {
   width: 390px;
 }
-.RegisterBtn button{
+.RegisterBtn button {
   width: 390px;
 }
 .nameInput {
@@ -189,249 +195,338 @@ span{
 select:focus {
   outline: none;
 }
-.enterCity{
+.enterCity {
   display: flex;
 }
-.dates{
+.dates {
   width: 390px;
   padding: 10px;
   border: none;
   box-shadow: 2px 2px 2px 2px lightgray;
 }
-.email{
+.email {
   background: url("/public/assets/images/email\ icon.png") no-repeat left;
   background-size: 20px;
   background-position: 10px center;
-  padding-left: 40px; 
-  box-sizing: border-box; 
+  padding-left: 40px;
+  box-sizing: border-box;
 }
-#Id{
-  background: url("/public/assets/images/🦆\ icon\ _perm\ identity_.png") no-repeat left;
+#Id {
+  background: url("/public/assets/images/🦆\ icon\ _perm\ identity_.png")
+    no-repeat left;
   background-size: 20px;
   background-position: 10px center;
-  padding-left: 40px; 
-  box-sizing: border-box; 
+  padding-left: 40px;
+  box-sizing: border-box;
 }
-.nationality{
+.nationality {
   background: url("/public/assets/images/Vector\ \(4\).png") no-repeat left;
   background-size: 20px;
   background-position: 10px center;
-  padding-left: 40px; 
-  box-sizing: border-box; 
+  padding-left: 40px;
+  box-sizing: border-box;
 }
 
 /* media query *
 /* Mobile : 375px => 768px */
 @media screen and (min-width: 100px) and (max-width: 375px) {
   /* register style */
-.registetrPageContainer {
-  flex-direction: column-reverse;
-}
-.registerPageContainer__item2{
-  padding-top: 0px;
-}
-.registetrPageContainer__item1 {
-  display: none;
-}
-.loginBtn button{
-  width: 390px;
-  font-weight: bolder;
-  padding: 15px;
-}
-.contunueBtn button{
-  width: 300px;
-  margin-top: 70px;
-}
-.registerBtn button{
-  width: 100%;
-}
-/* end of register style */
-
-/* registerAsPatient */
-.cityItem{
-  margin-left: 0px;
-}
-.enterCity{
-  flex-direction: column;
-}
-.registerAsPatient{
-  max-width: 90%;
-}
-.EnterNameItems{
-  flex-direction: column;
-}
-
-.registerBtn button{
-  width: 100%;
-}
-.email , .password , .nationality{
-  width: 320px;
-}
-.RegisterBtn button{
-  width: 320px;
-}
-.nameInput{
-  width:320px;
-}
-.label{
-  margin:20px 0px 10px 0px;
-}
-.phone {
-  width: 225px;
-}
-.Diseases,.certificates{
-  width: 235px;
-}
-.country ,.city{
-  width:320px;
-}
-.enterCity{
-  display: flex;
-}
-.googleBtn,.facebookBtn{
-  width: 320px;
-}
-}
-@media screen and (min-width:375px) and (max-width:767px) { 
-   /* register style */
-.registetrPageContainer {
-  flex-direction: column-reverse;
-}
-.registerPageContainer__item2{
-  padding-top: 60px;
-}
-.registetrPageContainer__item1 {
-  display: none;
-}
-.loginBtn button{
-  width: 390px;
-  font-weight: bolder;
-  padding: 15px;
-}
-.contunueBtn button{
-  width: 300px;
-  margin-top: 70px;
-}
-/* end of register style */
-
-/* registerAsPatient */
-.cityItem{
-  margin-left: 0px;
-}
-.enterCity{
-  flex-direction: column;
-}
-.registerAsPatient{
-  max-width: 90%;
-}
-.EnterNameItems{
-  flex-direction: column;
-}
-.registerBtn button{
-  width: 100%;
-}
-.email , .password , .nationality{
-  width: 380px;
-}
-.RegisterBtn button{
-  width: 380px;
-}
-.nameInput{
-  width:380px;
-}
-.label{
-  margin:20px 0px 10px 0px;
-}
-.phone {
-  width: 288px;
-}
-.Diseases,.certificates{
-  width: 280px;
-}
-.country ,.city{
-  width:380px;
-}
-.enterCity{
-  display: flex;
-}
-.googleBtn,.facebookBtn{
-  width: 380px;
-}
-}
-/* tablet : 768px => 1024px */
-@media screen and (min-width:768px) and (max-width:1024px) {
-   /* register style */
-.registetrPageContainer {
-  flex-direction: column-reverse;
-}
-.registerPageContainer__item2{
-  padding-top: 60px;
-}
-.registetrPageContainer__item1 {
-  display: none;
-}
-.loginBtn button{
-  width: 390px;
-  font-weight: bolder;
-  padding: 15px;
-}
-.contunueBtn button{
-  width:500px;
-  margin-top: 70px;
-}
-/* end of register style */
+  .registetrPageContainer {
+    flex-direction: column-reverse;
+  }
+  .registerPageContainer__item2 {
+    padding-top: 0px;
+  }
+  .registetrPageContainer__item1 {
+    display: none;
+  }
+  .loginBtn button {
+    width: 390px;
+    font-weight: bolder;
+    padding: 15px;
+  }
+  .contunueBtn button {
+    width: 300px;
+    margin-top: 70px;
+  }
+  .registerBtn button {
+    width: 100%;
+  }
+  /* end of register style */
 
   /* registerAsPatient */
-.cityItem{
-  margin-left: 0px;
+  .cityItem {
+    margin-left: 0px;
+  }
+  .enterCity {
+    flex-direction: column;
+  }
+  .registerAsPatient {
+    max-width: 90%;
+  }
+  .EnterNameItems {
+    flex-direction: column;
+  }
+
+  .registerBtn button {
+    width: 100%;
+  }
+  .email,
+  .password,
+  .nationality {
+    width: 320px;
+  }
+  .RegisterBtn button {
+    width: 320px;
+  }
+  .nameInput {
+    width: 320px;
+  }
+  .label {
+    margin: 20px 0px 10px 0px;
+  }
+  .phone {
+    width: 225px;
+  }
+  .Diseases,
+  .certificates {
+    width: 235px;
+  }
+  .country,
+  .city {
+    width: 320px;
+  }
+  .enterCity {
+    display: flex;
+  }
+  .googleBtn,
+  .facebookBtn {
+    width: 320px;
+  }
 }
-.enterCity{
-  flex-direction: column;
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  /* register style */
+  .registetrPageContainer {
+    flex-direction: column-reverse;
+  }
+  .registerPageContainer__item2 {
+    padding-top: 60px;
+  }
+  .registetrPageContainer__item1 {
+    display: none;
+  }
+  .loginBtn button {
+    width: 390px;
+    font-weight: bolder;
+    padding: 15px;
+  }
+  .contunueBtn button {
+    width: 300px;
+    margin-top: 70px;
+  }
+  /* end of register style */
+
+  /* registerAsPatient */
+  .cityItem {
+    margin-left: 0px;
+  }
+  .enterCity {
+    flex-direction: column;
+  }
+  .registerAsPatient {
+    max-width: 90%;
+  }
+  .EnterNameItems {
+    flex-direction: column;
+  }
+  .registerBtn button {
+    width: 100%;
+  }
+  .email,
+  .password,
+  .nationality {
+    width: 380px;
+  }
+  .RegisterBtn button {
+    width: 380px;
+  }
+  .nameInput {
+    width: 380px;
+  }
+  .label {
+    margin: 20px 0px 10px 0px;
+  }
+  .phone {
+    width: 288px;
+  }
+  .Diseases,
+  .certificates {
+    width: 280px;
+  }
+  .country,
+  .city {
+    width: 380px;
+  }
+  .enterCity {
+    display: flex;
+  }
+  .googleBtn,
+  .facebookBtn {
+    width: 380px;
+  }
 }
-.registerAsPatient{
-  max-width: 60%;
-}
-.EnterNameItems{
-  flex-direction: column;
-}
-.registerBtn button{
-  width: 100%;
-}
-.email , .password , .nationality{
-  width: 500px;
-}
-.RegisterBtn button{
-  width: 500px;
-}
-.nameInput{
-  width:500px;
-}
-.label{
-  margin:20px 0px 10px 0px;
-}
-.phone {
-  width:400px;
-}
-.Diseases,.certificates{
-  width: 400px;
-  margin-right: 20px;
-}
-.country ,.city{
-  width:500px;
-}
-.enterCity{
-  display: flex;
-}
-.googleBtn,.facebookBtn{
-  width: 500px;
-}
-.password{
-  background-position-x: 450px;
-}
-.dates{
-  width: 500px;
-}
+/* tablet : 768px => 1024px */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  /* register style */
+  .registetrPageContainer {
+    flex-direction: column-reverse;
+  }
+  .registerPageContainer__item2 {
+    padding-top: 60px;
+  }
+  .registetrPageContainer__item1 {
+    display: none;
+  }
+  .loginBtn button {
+    width: 390px;
+    font-weight: bolder;
+    padding: 15px;
+  }
+  .contunueBtn button {
+    width: 500px;
+    margin-top: 70px;
+  }
+  /* end of register style */
+
+  /* registerAsPatient */
+  .cityItem {
+    margin-left: 0px;
+  }
+  .enterCity {
+    flex-direction: column;
+  }
+  .registerAsPatient {
+    max-width: 60%;
+  }
+  .EnterNameItems {
+    flex-direction: column;
+  }
+  .registerBtn button {
+    width: 100%;
+  }
+  .email,
+  .password,
+  .nationality {
+    width: 500px;
+  }
+  .RegisterBtn button {
+    width: 500px;
+  }
+  .nameInput {
+    width: 500px;
+  }
+  .label {
+    margin: 20px 0px 10px 0px;
+  }
+  .phone {
+    width: 400px;
+  }
+  .Diseases,
+  .certificates {
+    width: 400px;
+    margin-right: 20px;
+  }
+  .country,
+  .city {
+    width: 500px;
+  }
+  .enterCity {
+    display: flex;
+  }
+  .googleBtn,
+  .facebookBtn {
+    width: 500px;
+  }
+  .password {
+    background-position-x: 450px;
+  }
+  .dates {
+    width: 500px;
+  }
 }
 /* laptop : 1024px => 1440px */
 @media screen and (min-width: 1024px) and (max-width: 1440px) {
+}
+
+form > div {
+  margin-bottom: 30px;
+}
+form > div > div {
+  width: 50%;
+}
+label {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+input:not([type="radio"]),
+select:not(.language) {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px 2px lightgray;
+}
+#phoneNumber {
+  width: 20%;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 2px 2px 2px 2px lightgray;
+}
+#phone_number {
+  width: 78%;
+}
+.separator {
+  width: 100%;
+  text-align: center;
+  margin: 30px auto;
+  position: relative;
+}
+.separator::before {
+  content: "";
+  position: absolute;
+  width: 45%;
+  height: 1px;
+  background-color: rgba(35, 35, 35, 1);
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.separator::after {
+  content: "";
+  position: absolute;
+  width: 45%;
+  height: 1px;
+  background-color: rgba(35, 35, 35, 1);
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.loginWithGoogle {
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 2px 2px 2px 2px lightgray;
+}
+.loginWithFacebook {
+  text-align: center;
+  background-color: #0866ff;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  box-shadow: 2px 2px 2px 2px lightgray;
 }
