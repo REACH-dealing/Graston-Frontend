@@ -36,7 +36,7 @@ function Navbar() {
 
         {/* 4 */}
         <div className='d-flex justify-content-center align-items-center'>
-            <img src='/assets/translate.png' alt='translate'/>
+            <img src='/assets/images/translate.png' alt='translate'/>
             <select className='language ms-3'>
                 <option>العربية</option>
                 <option>English</option>

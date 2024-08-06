@@ -11,6 +11,7 @@
 /* NavBar style */
 .navbarContainer{
   font-family: var(--font-familyRoboto);
+}
 .nav {
   background-color: #fff;
   box-shadow: 3px 3px 3px 3px lightgray;
@@ -26,6 +27,7 @@
 .navbar{
   display: flex;
   max-width: 90%;
+}
 .navbar {
   width: 90%;
   margin: auto;
@@ -50,6 +52,7 @@
 }
 .not-active:focus{
   color: var(--main-color);
+}
 .navbar-brand {
   font-family: Aref Ruqaa;
   color: #2f9c95;
@@ -70,6 +73,7 @@ button:focus{
   padding: 10px;
   border: none;
   border-radius: 5px;
+}
 .navbar-brand:hover {
   color: #2f9c95;
 }
@@ -86,40 +90,3 @@ button:focus{
   color: #fff;
 }
 /* end of navbar style */
-
-/* introSection style */
-.introSection {
-  max-width: 90%;
-  margin: auto;
-  margin-top: 130px;
-  display: flex;
-}
-.introSection__item1 p:first-child{
-  color: var(--main-color);
-  font-weight:bold;
-.introSection__item1 p:first-child {
-  color: #2f9c95;
-  font-weight: bold;
-  font-family: var(--font-familyRoboto);
-}
-.introSection__item1 h1 {
-  font-weight: bold;
-  color: #323232;
-  font-family: var(--font-familyRoboto);
-}
-.introSection__item1 h1 + p:nth-of-type(2) {
-  color: #323232;
-  font-family: var(--font-familyRoboto);
-}
-.introSection__item2 div{
-  background-color:var(--main-color);
-.introSection__item2 div {
-  background-color: #2f9c95;
-  width: 212px;
-  height: 210px;
-}
-.btnDiv button {
-  width: 150px;
-}
-
-/*  */

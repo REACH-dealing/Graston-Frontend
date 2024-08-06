@@ -10,6 +10,8 @@
 }
 .forgotPasswordContainer__p{
   color: #2F9C95;
+  width: 71%;
+  font-size: 10px;
 }
 .forgotPasswordContainer__items{
   display: flex;
@@ -22,6 +24,7 @@
   border: none;
   box-shadow: 2px 2px 2px 2px lightgray;
   border-radius: 5px;
+  width: 80px;
 }
 .forgotPasswordContainer__phone {
   border: none;
@@ -29,12 +32,13 @@
   box-shadow: 2px 2px 2px 2px lightgray;
   border-radius: 5px;
   margin-left: 10px;
+  width:286px ;
 }
 .forgotPasswordContainer__phone:focus {
   outline: none;
 }
 .sendCodeBtn button {
-  width: 500px;
+  width: 390px;
 }
 .verifay {
   text-decoration: none;
@@ -47,6 +51,7 @@
 }
 .forgotPasswordContainer__P{
   color: #2F9C95;
+  width: 71%;
 }
 .forgotPasswordContainer__items{
   display: flex;
@@ -66,16 +71,16 @@
   padding: 12px 25px 12px 25px;
   box-shadow: 1px 1px 1px 1px lightgray;
   border-radius: 5px;
-  background: url("/public/assets/email\ icon.png") no-repeat left;
+  background: url("/public/assets/images/email\ icon.png") no-repeat left;
   background-size: 20px;
   background-position: 10px center;
-  padding-left: 40px; 
+  padding-left: 40px;
+  width: 390px; 
   box-sizing: border-box; 
 }
 .forgotEmail:focus {
   outline: none;
 }
-
 /* verifay phone number */
 .VerifayPhoneContainer__h4 {
   color: #2f9c95;
@@ -95,8 +100,6 @@
   outline: none;
 }
 .VerifayPhoneContainer__items{
-  /* background-color: #fff; */
-  /* border-radius: 50px; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -123,7 +126,7 @@
 }
 .verifayEmailContainer__inputs input {
   width: 50px;
-  margin: 10px;
+  margin: 0px 15px 0px 15px;
   padding: 15px;
   border-radius: 16px;
   border: none;
@@ -149,5 +152,5 @@
   font-family: var(--font-familyRoboto);
 }
 .confirmCode button {
-  width: 500px;
+  width: 390px;
 }

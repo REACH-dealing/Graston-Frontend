@@ -26,7 +26,7 @@ function RegisterPage() {
       <div className='registetrPageContainer'>
         <div className='registetrPageContainer__item1'>
           <h5 className='text-light fw-bolder mb-5'>Welcome Back</h5>
-          <p className='text-center fw-lighter'>To keep connected with us please login with your personal info</p>
+          <p className='text-center fw-lighter w-75'>To keep connected with us please login with your personal info</p>
           <Link to={'/LoginPage'}>
             <div className='loginBtn'>
               <LightBtn text={"Login"} />
@@ -43,7 +43,7 @@ function RegisterPage() {
           </div>
           <div className='d-flex mt-5'>
             <div className='position-relative me-3 mt-5'>
-              <img src='/assets/patient.png' alt='patient' className='patient-img' />
+              <img src='/assets/images/patient.png' alt='patient' className='patient-img' />
               <div className='patient'>
                 <p className='fw-bolder'>Patient</p>
                 <input
@@ -58,7 +58,7 @@ function RegisterPage() {
               </div>
             </div>
             <div className='position-relative mt-5'>
-              <img src='/assets/physiotherapist.png' alt='physiotherapist' className='physiotherapist-img' />
+              <img src='/assets/images/physiotherapist.png' alt='physiotherapist' className='physiotherapist-img' />
               <div className='physiotherapist'>
                 <p className='fw-bolder ms-2'>Physiotherapist</p>
                 <input

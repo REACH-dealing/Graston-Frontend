@@ -16,7 +16,7 @@ function NurseProfile() {
            <div className='profileSettings mt-5'>
               <div  className='d-flex align-items-center justify-content-between'>
                 <div className='d-flex'>
-                  <img src='/assets/🦆 icon _perm identity_.png' alt='profile' className='mt-2'/>
+                  <img src='/assets/images/🦆 icon _perm identity_.png' alt='profile' className='mt-2'/>
                   <p style={{color:"black"}} className='fw-bolder ms-3'>Profile</p>
                 </div>
                 {/* <div className='' style={{width:""}}>
@@ -24,29 +24,29 @@ function NurseProfile() {
                 </div> */}
               </div>
               <div className='d-flex align-items-center'>
-                <img src='/assets/vector.png' alt='fav'/>  
+                <img src='/assets/images/vector.png' alt='fav'/>  
                 <p className='mt-3 ms-3 fw-bolder'>Favorites</p>
               </div> 
               <div className='d-flex align-items-center'>
-                <img src='/assets/Group 481330.png' alt='payment'/>
+                <img src='/assets/images/Group 481330.png' alt='payment'/>
                 <p className='mt-3 ms-3 fw-bolder'>Payment</p>
               </div>
               <div className='d-flex align-items-center'>
-                <img src='/assets/support.png' alt='help support'/> 
+                <img src='/assets/images/support.png' alt='help support'/> 
                 <p className='mt-3 ms-3 fw-bolder'>Help Support</p>
               </div>
               <div className='d-flex align-items-center'>
-                <img src='/assets/vector (1).png' alt='settings'/>
+                <img src='/assets/images/vector (1).png' alt='settings'/>
                 <p className='mt-3 ms-3 fw-bolder'>Settings</p>
               </div>
               <div className='d-flex align-items-center'>
-                <img src='/assets/vector (2).png' alt='privacy policy'/>
+                <img src='/assets/images/vector (2).png' alt='privacy policy'/>
                 <p className='mt-3 ms-3 fw-bolder'>Privacy Policy</p>
               </div>
 
               <hr/>
               <div className='d-flex align-items-center'>
-                <img src='/assets/Group.png' alt='logout'/>
+                <img src='/assets/images/Group.png' alt='logout'/>
                 <p className='mt-3 ms-3 fw-bolder' style={{color:"red"}}>Log Out</p>
               </div>
            </div>
@@ -54,10 +54,10 @@ function NurseProfile() {
         <div className='patientProfileContainer__item2'>
           <div className='d-flex flex-column align-items-center  justify-content-center position-relative'>
             <div className='position-relative'>
-              <img src='/assets/Group 481328.png' alt='patient img' width={"140px"}/>
+              <img src='/assets/images/Group 481328.png' alt='patient img' width={"140px"}/>
             </div>
             <div className='position-absolute add-image'>
-              <img src='/assets/Frame 119.png' alt='add img' width={"50px"}/>
+              <img src='/assets/images/Frame 119.png' alt='add img' width={"50px"}/>
             </div>
           </div>
           <p className='text-center mt-5'>Specialized massage therapist focused on <br/> therapeutic treatments for pain relief and recovery.</p>

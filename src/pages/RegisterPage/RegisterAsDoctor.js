@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import "./RegisterPageStyle.css";
 import { Button } from 'react-bootstrap';
 import MintButton from '../../Common/MintButton';
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 function RegisterAsDoctor() {
-  // const { t } = useTranslation();
+  const [password, setPassword] = useState("");
+  const [passwordVisible, setPasswordVisible] = useState(false); 
   const [selectGender , setGender] = useState('');
   const handleGenderType = (gender)=>{
     setGender(gender);
@@ -29,9 +31,23 @@ function RegisterAsDoctor() {
           <label className='fw-bolder mt-5 mb-2'>Email</label>
           <input type='email' required placeholder='Abdullah@gmail.com' className='email'/>
         </div>
-        <div className='d-flex flex-column x'>
-          <label className='fw-bolder mt-5 mb-2'>Password</label>
-          <input type='password' required placeholder='1234kk@2' className='password'/>
+        <div className="d-flex flex-column position-relative">
+          <label htmlFor="password" className="fw-bolder mb-3 mt-4">Password</label>
+            <input
+              id="password"
+              placeholder="1234kk@2"
+              type={passwordVisible ? "text" : "password"}
+              required
+              className="passwordFiled"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+            />
+            <span
+              className="passwordToggleIcon"
+              onClick={() => setPasswordVisible(!passwordVisible)}
+              >
+              {passwordVisible ? <FaEye /> : <FaEyeSlash />}
+            </span>
         </div>
         <div className='d-flex flex-column'>
           <label className='fw-bolder mt-5 mb-2'>Nationality ID</label>
@@ -54,7 +70,7 @@ function RegisterAsDoctor() {
           <label className='fw-bolder mt-5 mb-2'>Phone Number</label>
           <div className='d-flex  mt-5 mb-3'>
             <div className='d-flex align-items-center align-items-center phoneCode'>
-              <img src='/assets/Group 481318.png' className='pb-2' width={'25px'} alt='phone number'/>
+              <img src='/assets/images/Group 481318.png' className='pb-2' width={'25px'} alt='phone number'/>
               <p className='pt-1 ms-1 me-3'>+966</p>
             </div>
             <div>
@@ -67,13 +83,13 @@ function RegisterAsDoctor() {
             <label className='fw-bolder mt-5 mb-2'>Country</label>
             <input className='country'/>
           </div>
-          <div className='d-flex flex-column ms-4'>
+          <div className='d-flex flex-column ms-3'>
             <label className='fw-bolder mt-5 mb-2'>city</label>
             <input className='city'/>
           </div>
         </div>
         <div>
-          <label className='fw-bolder mt-3 mb-2'>Gender</label>
+          <label className='fw-bolder mt-5 mb-2'>Gender</label>
           <div className='d-flex '>
             <div className='mt-3 ms-4'>
               <input type='radio'
@@ -129,9 +145,9 @@ function RegisterAsDoctor() {
         <div className='RegisterBtn'>
           <MintButton text={'Register'}/>
         </div>
-        <h6 className='mt-4'>OR</h6>
-              <Button variant='light' className='fw-bolder d-block w-100 googleBtn mt-4'><img src='/assets/google.png' className='me-3' width={'22px'} alt='google'/>Login With Google</Button>
-              <Button className=' facebookBtn fw-bolder d-block mt-5'><img src='/assets/facebook icon.png' className='me-3' width={'22px'} alt='facebook'/>Login With Facebook</Button>
+        <h6 className='mt-5 fw-bolder'>OR</h6>
+              <Button variant='light' className='fw-bolder d-block w-100 googleBtn mt-4'><img src='/assets/images/google.png' className='me-3' width={'22px'} alt='google'/>Login With Google</Button>
+              <Button className=' facebookBtn fw-bolder d-block mt-5'><img src='/assets/images/facebook icon.png' className='me-3' width={'22px'} alt='facebook'/>Login With Facebook</Button>
       </form>
     </div>
     </div>

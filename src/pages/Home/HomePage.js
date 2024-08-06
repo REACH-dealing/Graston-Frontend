@@ -5,13 +5,13 @@ import "./HomePageStyle.css";
 // import AboutUs from './AboutUs';
 import PatientProfile from '../Profile/PatientProfile';
 import NurseProfile from '../Profile/NurseProfile';
-import LoginPage from '../LoginPage/LoginPage';
+// import LoginPage from '../LoginPage/LoginPage';
 function HomePage() {
   return (
     <div className='homePage'>
-      <NurseProfile/>
+      {/* <NurseProfile/> */}
       {/* <LoginPage/> */}
-      {/* <PatientProfile/> */}
+      <PatientProfile/>
     </div>
   )
 }
