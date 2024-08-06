@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import "./RegisterPageStyle.css";
 import { Button } from 'react-bootstrap';
 import MintButton from '../../Common/MintButton';
@@ -10,7 +10,7 @@ function RegisterAsDoctor() {
   const [selectGender , setGender] = useState('');
   const handleGenderType = (gender)=>{
     setGender(gender);
-  }
+  };
   return (
     <div>
       <div className='registerAsPatient'>

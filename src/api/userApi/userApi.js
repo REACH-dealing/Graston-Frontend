@@ -15,9 +15,21 @@ export const loginApi = async (user) => {
 };
 
 // Register - end point
-export const registerApi = async (newUser) => {
+export const registerPatientApi = async (newUser) => {
   try {
-    const response = await axiosInstance.post(`/auth/register/`, newUser);
+    const response = await axiosInstance.post(
+      `/auth/register/patient/`,
+      newUser
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error registering", error);
+    throw error;
+  }
+};
+export const registerNurseApi = async (newUser) => {
+  try {
+    const response = await axiosInstance.post(`/auth/register/nurse/`, newUser);
     return response.data;
   } catch (error) {
     console.error("Error registering", error);

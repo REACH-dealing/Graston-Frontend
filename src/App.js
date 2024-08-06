@@ -41,6 +41,24 @@ function App() {
         escapeValue: false,
       },
     });
+    .use(initReactI18next)
+    .use(LanguageDetector)
+    .init({
+      // lng: 'ar',
+      resources: {
+        en: {
+          translation: enTranslation,
+        },
+        ar: {
+          translation: arTranslation,
+        },
+      },
+      fallbackLng: "en",
+      debug: true,
+      interpolation: {
+        escapeValue: false,
+      },
+    });
   return (
     // <Provider>
     <BrowserRouter>

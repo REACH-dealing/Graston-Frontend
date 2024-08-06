@@ -48,6 +48,7 @@ h6::after {
   align-items: center;
   justify-content: center;
   box-sizing: content-box;
+  padding-bottom: 30px;
 }
 .loginPageContainer__item2 {
   width: 530px;
