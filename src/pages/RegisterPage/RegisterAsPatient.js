@@ -4,7 +4,7 @@ import "./RegisterPageStyle.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import MintButton from "../../Common/MintButton";
-import { registerPatientApi } from "../../api/userApi/userApi";
+import { registerPatientApi } from "../../api/userApi/authApi";
 function RegisterAsPatient() {
   const navigate = useNavigate();
   var newUser = {
@@ -222,13 +222,10 @@ function RegisterAsPatient() {
               <label htmlFor="phone_number" className="d-block">
                 Phone Number
               </label>
-              <div className="d-inline-block">+966</div>
-              <Field
-                type="text"
-                id="phone_number"
-                name="phone_number"
-                className="d-inline-block"
-              />
+              <div className="d-flex justify-content-between w-100">
+                <div id="phoneNumber">+966</div>
+                <Field type="text" id="phone_number" name="phone_number" />
+              </div>
               <ErrorMessage
                 name="phone_number"
                 className="text-danger"

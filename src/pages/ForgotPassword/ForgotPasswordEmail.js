@@ -2,18 +2,8 @@ import React, { useState } from "react";
 import "./style.css";
 import MintButton from "../../Common/MintButton";
 import { Link } from "react-router-dom";
-import { sendOTP } from "../../api/userApi/userApi";
 function ForgotPasswordEmail() {
   const [email, setEmail] = useState("");
-
-  const handleEmailValidation = async () => {
-    try {
-      const response = await sendOTP(email);
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   return (
     <div className="forgotPasswordContainer">

@@ -4,7 +4,7 @@ import "./RegisterPageStyle.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import MintButton from "../../Common/MintButton";
-import { registerNurseApi } from "../../api/userApi/userApi";
+import { registerNurseApi } from "../../api/userApi/authApi";
 function RegisterAsPatient() {
   const navigate = useNavigate();
   var newUser = {

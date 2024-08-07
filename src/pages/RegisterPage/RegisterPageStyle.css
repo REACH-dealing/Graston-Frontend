@@ -496,7 +496,7 @@ select:not(.language) {
 .separator::before {
   content: "";
   position: absolute;
-  width: 45%;
+  width: 43%;
   height: 1px;
   background-color: rgba(35, 35, 35, 1);
   left: 0;
@@ -506,7 +506,7 @@ select:not(.language) {
 .separator::after {
   content: "";
   position: absolute;
-  width: 45%;
+  width: 43%;
   height: 1px;
   background-color: rgba(35, 35, 35, 1);
   right: 0;

@@ -14,8 +14,8 @@ import CreateNewPassword from "./pages/RestPassword/CreateNewPassword";
 import RestPassword from "./pages/RestPassword/RestPassword";
 import PatientProfile from "./pages/Profile/PatientProfile";
 import NurseProfile from "./pages/Profile/NurseProfile";
-// import { Provider } from 'react-redux';
-// import store from "./app/store"
+import { Provider } from "react-redux";
+import store from "./app/store";
 import LanguageDetector from "i18next-browser-languagedetector";
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
@@ -42,27 +42,30 @@ function App() {
       },
     });
   return (
-    // <Provider>
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/LoginPage" element={<LoginPage />} />
-        <Route path="/RegisterPage" element={<RegisterPage />} />
-        <Route path="/RegisterAsPatient" element={<RegisterAsPatient />} />
-        <Route path="/RegisterAsDoctor" element={<RegisterAsDoctor />} />
-        <Route path="/ForgotPassword" element={<ForgotPassword />} />
-        <Route path="/ForgotPasswordEmail" element={<ForgotPasswordEmail />} />
-        <Route path="/VerifayEmail" element={<VerifayEmail />} />
-        <Route path="/VerifayPhone" element={<VerifayPhone />} />
-        <Route path="/CreateNewPassword" element={<CreateNewPassword />} />
-        <Route path="/RestPassword" element={<RestPassword />} />
-        <Route path="/PatientProfile" element={<PatientProfile />} />
-        <Route path="/NurseProfile" element={<NurseProfile />} />
-        <Route path="/RestPassword" element={<RestPassword />} />
-      </Routes>
-    </BrowserRouter>
-    // </Provider>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/LoginPage" element={<LoginPage />} />
+          <Route path="/RegisterPage" element={<RegisterPage />} />
+          <Route path="/RegisterAsPatient" element={<RegisterAsPatient />} />
+          <Route path="/RegisterAsDoctor" element={<RegisterAsDoctor />} />
+          <Route path="/ForgotPassword" element={<ForgotPassword />} />
+          <Route
+            path="/ForgotPasswordEmail"
+            element={<ForgotPasswordEmail />}
+          />
+          <Route path="/VerifayEmail" element={<VerifayEmail />} />
+          <Route path="/VerifayPhone" element={<VerifayPhone />} />
+          <Route path="/CreateNewPassword" element={<CreateNewPassword />} />
+          <Route path="/RestPassword" element={<RestPassword />} />
+          <Route path="/PatientProfile" element={<PatientProfile />} />
+          <Route path="/NurseProfile" element={<NurseProfile />} />
+          <Route path="/RestPassword" element={<RestPassword />} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   );
 }
 

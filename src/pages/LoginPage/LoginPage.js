@@ -4,30 +4,42 @@ import { Button } from "react-bootstrap";
 import MintButton from "../../Common/MintButton";
 import LightBtn from "../../Common/LightBtn";
 import { Link } from "react-router-dom";
-import { loginApi } from "../../api/userApi/userApi";
+import { loginApi } from "../../api/userApi/authApi";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 
 function LoginPage() {
-  const emailRe = /^[\w.%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleLogin = async () => {
-    if (!emailRe.test(email) || password.length > 6) {
-      alert("Please enter a valid email address or password.");
-    } else {
-      setLoading(true);
-      try {
-        const response = await loginApi({ email, password });
-        console.log(response);
-        setLoading(false);
-      } catch (error) {
-        console.log(error.message);
-        alert("Email or Password are incorrect");
-        setLoading(false);
-      }
+  const initialValues = {
+    email: "",
+    password: "",
+  };
+
+  const validationSchema = Yup.object({
+    email: Yup.string().email("Invalid email format").required("Required"),
+    password: Yup.string()
+      .min(6, "Password must be at least 6 characters")
+      .required("Required"),
+  });
+
+  const onSubmit = async (values) => {
+    console.log("Form data", values);
+    // Handle form submission
+    setLoading(true);
+    try {
+      const response = await loginApi({
+        email: values["email"],
+        password: values["password"],
+      });
+      console.log(response);
+      setLoading(false);
+    } catch (error) {
+      console.log(error.message);
+      alert("Email or Password are incorrect");
+      setLoading(false);
     }
   };
 
@@ -43,75 +55,63 @@ function LoginPage() {
           <h3 className="text-center mb-4">جــــــــــراســــــــــــــتون</h3>
           <h5 className="text-center mt-3 fw-bolder mb-5">Welcome back!</h5>
           <div className="loginFormContainer">
-            <form action="" className="loginForm">
-              <div className="d-flex flex-column">
-                <label htmlFor="email" className="fw-bolder mb-3">
-                  Email
-                </label>
-                <input
-                  id="email"
-                  placeholder="Enter Your Email"
-                  type="email"
-                  required
-                  className="emailFiled"
-                  onChange={(e) => setEmail(e.target.value)}
-                  value={email}
-                />
-              </div>
-              <div className="d-flex flex-column position-relative">
-                <label htmlFor="password" className="fw-bolder mb-3 mt-4">
-                  Password
-                </label>
-                <input
-                  id="password"
-                  placeholder="1234kk@2"
-                  type={passwordVisible ? "text" : "password"}
-                  required
-                  className="passwordFiled"
-                  onChange={(e) => setPassword(e.target.value)}
-                  value={password}
-                />
-                <span
-                  className="passwordToggleIcon"
-                  onClick={() => setPasswordVisible(!passwordVisible)}
-                >
-                  {passwordVisible ? <FaEye /> : <FaEyeSlash />}
-                </span>
-              </div>
-
-              <div className="d-flex justify-content-between align-self-start mt-4">
-                <div className="">
-                  <p className="fw-bolder mt-2">
-                    <Link to={"/ForgotPassword"}>Forgot Password?</Link>
-                  </p>
-                </div>
-              </div>
-              <div className="loginBtn">
-                <MintButton text="Login" onClick={handleLogin} />
-              </div>
-              <h6 className="fw-bolder mt-5">OR</h6>
-              <Button
-                variant="light"
-                className="fw-bolder d-block googleBtn mt-4"
-              >
-                <img
-                  src="/assets/images/google.png"
-                  className="me-3"
-                  width={"22px"}
-                  alt="google"
-                />
-                Login With Google
-              </Button>
-              <Button className="facebookBtn fw-bolder d-block mt-4">
-                <img
-                  src="/assets/images/facebook icon.png"
-                  className="me-3"
-                  width={"22px"}
-                  alt="facebook"
-                />
-                Login With Facebook
-              </Button>
-            </form>
+            <Formik
+              initialValues={initialValues}
+              validationSchema={validationSchema}
+              onSubmit={onSubmit}
+            >
+              {({ setFieldValue }) => (
+                <Form>
+                  <div>
+                    <label htmlFor="email">Email</label>
+                    <Field type="email" id="email" name="email" />
+                    <ErrorMessage
+                      className="text-danger w-100"
+                      name="email"
+                      component="div"
+                    />
+                  </div>
+                  <div className="position-relative m-0">
+                    <label htmlFor="password">Password</label>
+                    <Field
+                      type={passwordVisible ? "text" : "password"}
+                      id="password"
+                      name="password"
+                      className="passwordFiled"
+                    />
+                    <span
+                      className="passwordToggleIcon"
+                      onClick={() => setPasswordVisible(!passwordVisible)}
+                    >
+                      {passwordVisible ? <FaEye /> : <FaEyeSlash />}
+                    </span>
+                    <ErrorMessage
+                      className="text-danger w-100"
+                      name="password"
+                      component="div"
+                    />
+                  </div>
+                  <div className="d-flex justify-content-between align-self-start m-0">
+                    <div className="m-0">
+                      <p className="fw-bolder mt-2">
+                        <Link
+                          to={"/ForgotPassword"}
+                          className="text-decoration-none"
+                        >
+                          Forgot Password?
+                        </Link>
+                      </p>
+                    </div>
+                  </div>
+                  <MintButton btnType="submit" text="Login" />
+                </Form>
+              )}
+            </Formik>
+            <div className="separator fw-bold fs-4">OR</div>
+            <div className="loginWith">
+              <div className="loginWithGoogle mb-5">Login with Google</div>
+              <div className="loginWithFacebook">Login with Facebook</div>
+            </div>
           </div>
         </div>
         <div className="loginPageContainer__item2 p-5">

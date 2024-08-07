@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getUserData } from "../../api/userApi/userApi";
+import { getPatientData } from "../../api/userApi/profileApi";
 const initialState = {
   status: "idle",
   user: {},
@@ -7,7 +7,7 @@ const initialState = {
 };
 
 export const fetchUserData = createAsyncThunk("data/fetchUserData", () => {
-  const response = getUserData();
+  const response = getPatientData();
   return response;
 });
 
