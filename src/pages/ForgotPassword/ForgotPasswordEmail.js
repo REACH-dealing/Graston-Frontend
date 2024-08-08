@@ -12,7 +12,7 @@ function ForgotPasswordEmail() {
           <img
             src="/assets/images/forgot password-03.png"
             alt="forgot password"
-            width={"150px"}
+            width={"182.8px"}
           />
         </div>
         <h4 className="forgotPasswordContainer__h4 fw-bolder mt-2">

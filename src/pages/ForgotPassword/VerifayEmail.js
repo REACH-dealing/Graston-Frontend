@@ -10,7 +10,7 @@ function VerifayEmail() {
           <img
             src="/assets/images/forgot password-02.png"
             alt="verifay email"
-            width={"150px"}
+            width={"182.8px"}
           />
         </div>
         <h4 className="verifayEmailContainer__h4 fw-bolder">

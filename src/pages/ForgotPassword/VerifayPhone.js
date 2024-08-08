@@ -6,14 +6,14 @@ function VerifayPhone() {
   return (
     <div className="VerifayPhoneContainer">
       <div className="VerifayPhoneContainer__items">
-        <div className="mt-5 mb-4">
+        <div className="mb-4">
           <img
             src="/assets/images/Frame 49.png"
             alt="verifay phone number"
-            width={"150px"}
+            width={"182.8px"}
           />
         </div>
-        <h4 className="VerifayPhoneContainer__h4">Verify Your Phone Number</h4>
+        <h4 className="VerifayPhoneContainer__h4 fw-bolder">Verify Your Phone Number</h4>
         <p
           className="VerifayPhoneContainer__p text-center mt-4"
           style={{ fontSize: "15px" }}

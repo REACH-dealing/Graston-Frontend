@@ -4,6 +4,7 @@ import MintButton from "../../Common/MintButton";
 import Modal from "../../Common/Modal";
 import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+
 function RestPassword() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -20,18 +21,18 @@ function RestPassword() {
   };
 
   return (
-    <div className="restPasswordContainer">
+    <div className={`restPasswordContainer ${showModal ? "modal-open" : ""}`}>
       <div className="restPasswordContainer__items">
-        <div className="mt-5 mb-3">
+        <div className="mb-3">
           <img
             src="/assets/images/forgot password-01.png"
             alt="reset password"
-            width={"150px"}
+            width={"182.8px"}
           />
         </div>
-        <h5 className="restPasswordContainer__items__h5 fw-bolder">
+        <h4 className="restPasswordContainer__items__h5 fw-bolder">
           Reset Password
-        </h5>
+        </h4>
         <p className="restPasswordContainer__items__p text-center w-75 mt-3">
           Please enter a new password, at least 8 characters long and different
           from the old one.
@@ -59,13 +60,13 @@ function RestPassword() {
               </span>
             </div>
             <div className="d-flex flex-column position-relative">
-              <label htmlFor="password" className="fw-bolder mb-3 mt-4">
-                Password
+              <label htmlFor="confirmPassword" className="fw-bolder mb-3 mt-4">
+                Confirm Password
               </label>
               <input
-                id="password"
+                id="confirmPassword"
                 placeholder="1234kk@2"
-                type={passwordVisible ? "text" : "password"}
+                type={confirmPasswordVisible ? "text" : "password"}
                 required
                 className="passwordFiled"
                 onChange={(e) => setConfirmPassword(e.target.value)}
@@ -73,7 +74,9 @@ function RestPassword() {
               />
               <span
                 className="passwordToggleIcon"
-                onClick={() => setConfirmPasswordVisible(!confirmPasswordVisible)}
+                onClick={() =>
+                  setConfirmPasswordVisible(!confirmPasswordVisible)
+                }
               >
                 {confirmPasswordVisible ? <FaEye /> : <FaEyeSlash />}
               </span>
@@ -86,16 +89,23 @@ function RestPassword() {
       </div>
 
       <Modal isOpen={showModal} onClose={handleCloseModal}>
-        <img src="/assets/images/Group 481323.png" alt="modal" width={"110px"} />
-        <p className="text-center mt-5">
-          Your password has been changed successfully. Use the new password for
-          future logins.
-        </p>
-        <Link to={"/LoginPage"}>
-          <div className="modalLoginBtn">
-            <MintButton text={"Login"} />
-          </div>
-        </Link>
+        <div className="d-flex flex-column justify-content-center align-items-center">
+          <img
+            src="/assets/images/Group 481323.png"
+            alt="modal"
+            className="mt-5"
+            width={"106.57px"}
+          />
+          <p className="mt-5 text-center">
+            Your password has been changed successfully. Use the new password
+            for future logins.
+          </p>
+          <Link to={"/LoginPage"}>
+            <div className="modalLoginBtn">
+              <MintButton text={"Login"} />
+            </div>
+          </Link>
+        </div>
       </Modal>
     </div>
   );
