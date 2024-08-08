@@ -6,10 +6,14 @@ import * as Yup from "yup";
 import MintButton from "../../Common/MintButton";
 import { registerPatientApi } from "../../api/userApi/authApi";
 function RegisterAsPatient() {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Handle Navigation to other pages
+
+  // Object to collect user data to send it with end-point
   var newUser = {
     user: {},
   };
+
+  // Initial values for form fields
   const initialValues = {
     first_name: "",
     last_name: "",
@@ -26,6 +30,7 @@ function RegisterAsPatient() {
     medical_report: null,
   };
 
+  // Validation of fom field
   const validationSchema = Yup.object({
     first_name: Yup.string().required("required"),
     last_name: Yup.string().required("required"),
@@ -68,6 +73,15 @@ function RegisterAsPatient() {
       }),
   });
 
+  // Handling Errors to combine them in one message
+  const handleErrors = (data) => {
+    const errors = [];
+    for (const error in data) {
+      errors.push(...data[error]);
+    }
+    return errors.join(" And ");
+  };
+
   const onSubmit = async (values) => {
     console.log("Form data", values);
     for (const property in values) {
@@ -87,6 +101,8 @@ function RegisterAsPatient() {
       navigate("/loginPage");
     } catch (error) {
       console.log(error.message);
+      console.log(error.response.data.user);
+      alert(handleErrors(error.response.data.user));
     }
   };
 

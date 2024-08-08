@@ -1,9 +1,28 @@
 import React, { useState } from "react";
 import "./style.css";
 import MintButton from "../../Common/MintButton";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { forgetPassword } from "../../api/userApi/authApi";
+import { useDispatch } from "react-redux";
+import { setUserID, setUserEmail } from "../../features/userID/userIDSlice";
+
 function ForgotPasswordEmail() {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(""); // Store Email That The User Inputs
+  const dispatch = useDispatch(); // Dispatch Actions From Redux toolkit
+  const navigate = useNavigate(); // Navigate To Other Pages
+
+  // Handle Sending To The Email The OTP Code To Confirm Ownership
+  const handleEmail = async () => {
+    try {
+      const response = await forgetPassword({ email: email });
+      console.log(response.data.user_id);
+      dispatch(setUserID(response.data.user_id));
+      dispatch(setUserEmail(email));
+      navigate("/VerifayEmail");
+    } catch (error) {
+      console.log("Error Sending OTP Code To Your Email ,", error.message);
+    }
+  };
 
   return (
     <div className="forgotPasswordContainer">
@@ -35,11 +54,11 @@ function ForgotPasswordEmail() {
             value={email}
           />
         </div>
-        <Link to={"/VerifayEmail"} className="">
-          <div className="sendCodeBtn mt-3 mb-3">
-            <MintButton text={"Send Code"} />
-          </div>
-        </Link>
+        {/* <Link to={"/VerifayEmail"} className=""> */}
+        <div className="sendCodeBtn mt-3 mb-3">
+          <MintButton text={"Send Code"} onClick={handleEmail} />
+        </div>
+        {/* </Link> */}
         <p className="mt-3 " style={{ color: "#2F9C95" }}>
           <span
             style={{ color: "#646464" }}

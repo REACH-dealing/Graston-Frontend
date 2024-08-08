@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import "./style.css";
 import MintButton from "../../Common/MintButton";
 import Modal from "../../Common/Modal";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { confirmPasswordReset } from "../../api/userApi/authApi";
+import { useSelector } from "react-redux";
 
 function RestPassword() {
   const [password, setPassword] = useState("");
@@ -12,12 +14,33 @@ function RestPassword() {
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-  const handleShowModal = () => {
-    setShowModal(true);
-  };
+  const navigate = useNavigate();
+
+  // There is no use of this now
+  // const handleShowModal = () => {
+  //   setShowModal(true);
+  // };
 
   const handleCloseModal = () => {
     setShowModal(false);
+  };
+
+  const userID = useSelector((state) => state.userID["user_id"]); // Get user ID from redux store
+
+  // Handle new password (NO VALIDATION YET)
+  const handleConfirmPassword = async () => {
+    if (password === confirmPassword) {
+      try {
+        const response = await confirmPasswordReset(userID, password);
+        console.log(response.data);
+        setShowModal(true);
+        navigate("/loginPage");
+      } catch (error) {
+        alert(error.message);
+      }
+    } else {
+      alert("Password and confirm password are not the same");
+    }
   };
 
   return (
@@ -84,7 +107,7 @@ function RestPassword() {
           </form>
         </div>
         <div className="saveInfo">
-          <MintButton text={"Save"} onClick={handleShowModal} />
+          <MintButton text={"Save"} onClick={handleConfirmPassword} />
         </div>
       </div>
 
