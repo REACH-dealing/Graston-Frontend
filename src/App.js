@@ -21,26 +21,9 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import enTranslation from "./Translate/en.json";
 import arTranslation from "./Translate/ar.json";
+import Settings from "./pages/Profile/ProfileItems/Settings";
 function App() {
   i18n
-    .use(initReactI18next)
-    .use(LanguageDetector)
-    .init({
-      // lng: 'ar',
-      resources: {
-        en: {
-          translation: enTranslation,
-        },
-        ar: {
-          translation: arTranslation,
-        },
-      },
-      fallbackLng: "en",
-      debug: true,
-      interpolation: {
-        escapeValue: false,
-      },
-    });
     .use(initReactI18next)
     .use(LanguageDetector)
     .init({
@@ -78,6 +61,7 @@ function App() {
         <Route path="/PatientProfile" element={<PatientProfile />} />
         <Route path="/NurseProfile" element={<NurseProfile />} />
         <Route path="/RestPassword" element={<RestPassword />} />
+        <Route path="/Settings" element={<Settings/>} />
       </Routes>
     </BrowserRouter>
     // </Provider>

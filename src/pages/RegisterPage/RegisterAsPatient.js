@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import React, { useState } from "react";
 import "./RegisterPageStyle.css";
 import { Button } from "react-bootstrap";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -15,9 +14,6 @@ function RegisterAsPatient() {
     <div className="registerAsPatient">
       <h2 className="text-center">جــــــــــراســــــــــــــتون</h2>
       <p className="fw-bolder text-center mb-5 mt-3">Register as Patient </p>
-    <div className="registerAsPatient">
-      <h2 className="text-center">جــــــــــراســــــــــــــتون</h2>
-      <p className="fw-bolder text-center mb-5 mt-3">Register as Patient </p>
       <form>
         <div className="EnterNameItems">
           <div className="d-flex flex-column">
@@ -28,24 +24,7 @@ function RegisterAsPatient() {
               required
               className="nameInput me-3"
             />
-        <div className="EnterNameItems">
-          <div className="d-flex flex-column">
-            <label className="fw-bolder mb-2 label">First Name</label>
-            <input
-              type="text"
-              placeholder="Abdullah"
-              required
-              className="nameInput me-3"
-            />
           </div>
-          <div className="d-flex flex-column">
-            <label className="fw-bolder mb-2 lastName label">Last Name</label>
-            <input
-              type="text"
-              placeholder="Ahmed"
-              required
-              className="nameInput"
-            />
           <div className="d-flex flex-column">
             <label className="fw-bolder mb-2 lastName label">Last Name</label>
             <input
@@ -94,15 +73,6 @@ function RegisterAsPatient() {
             className="nationality"
             id="Id"
           />
-        <div className="d-flex flex-column">
-          <label className="fw-bolder mt-5 mb-2">Nationality ID</label>
-          <input
-            type=""
-            required
-            placeholder="3333111100005555"
-            className="nationality"
-            id="Id"
-          />
         </div>
         <div className="d-flex flex-column">
           <label className="fw-bolder mt-5 mb-2">Nationality</label>
@@ -115,9 +85,6 @@ function RegisterAsPatient() {
             <option>Algerian</option>
           </select>
         </div>
-        <div className="d-flex flex-column">
-          <label className="fw-bolder mt-5 mb-2">Date Of Birth</label>
-          <input type="date" className="dates" />
         <div className="d-flex flex-column">
           <label className="fw-bolder mt-5 mb-2">Date Of Birth</label>
           <input type="date" className="dates" />

@@ -112,80 +112,90 @@ h6::after {
 /* media query *
 /* Mobile : 375px => 768px */
 @media screen and (min-width: 100px) and (max-width: 375px) {
+  .navbarContainer {
+    display: none;
+  }
   .loginPageContainer {
-    max-width: 100%;
-    margin: auto;
+    /* display: flex; */
     flex-direction: column;
-    justify-content: center;
+    max-width: 100%;
+    /* : auto;
+    height: 900px;
+    font-family: var(--font-familyRoboto); */
+  }
+  .loginPageContainer__item1{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    box-sizing: content-box;
+    padding-bottom: 30px;
   }
   .loginPageContainer__item2 {
     display: none;
   }
-  .emailFiled ,.passwordFiled{
-    width: 330px;
+  .emailFiled,
+  .passwordFiled {
+    padding: 10px;
+    border: none;
+    box-shadow: 2px 2px 2px 2px lightgray;
+    width: 390px;
   }
-  .googleBtn ,.facebookBtn{
-    width: 330px;
+  .emailFiled,
+  .passwordFiled:focus {
+    outline: none;
+  }
+  .loginPageContainer__item1 a {
+    text-decoration: none;
+    color: #2f9c95;
+  }
+  .googleBtn,
+  .facebookBtn {
+    border: none;
+    box-shadow: 2px 2px 2px 2px lightgray;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+  }
+  .passwordToggleIcon {
+    position: absolute;
+    bottom:2%;
+    right: 0.5rem;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #6c757d;
+  }
+  .position-relative {
+    position: relative;
+  }
+  .emailFiled{
+    background: url("/public/assets/images/email\ icon.png") no-repeat left;
+    background-size: 20px;
+    background-position: 10px center;
+    padding-left: 40px; 
+    box-sizing: border-box; 
+  }
+  .loginPageContainer__item2 p{
+    color: #d5d5d5;
+    text-align: center;
+    font-family: var(--font-familyRoboto);
   }
   .sign-option{
-    display: block;
-  }
-  .loginBtn button{
-    width: 330px;
+    display: none;
   }
 }
 @media screen and (min-width: 375px) and (max-width: 767px) {
-  .loginPageContainer {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .loginPageContainer__item2 {
-    display: none;
-  }
-  .emailFiled ,.passwordFiled{
-    width: 380px;
-  }
-  .googleBtn ,.facebookBtn{
-    width: 330px;
-  }
-  .sign-option{
-    display: block;
-  }
-  .loginBtn button{
-    width: 330px;
-  }
+  
 }
 /* tablet : 768px => 1024px */
 @media screen and (min-width:768px) and (max-width:1024px) {
-  .loginPageContainer{
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .DivBtn button{
-    width: 500px;
-  }
-  .loginPageContainer__item2{
-    display: none;
-  }
-  .emailFiled ,.passwordFiled{
-    width: 500px;
-  }
-  .googleBtn ,.facebookBtn{
-    width: 330px;
-  }
-  .sign-option{
-    display: block;
-  }
-  .passwordFiled{
-    background-position-x: 450px;
-  }
+  
 }
 /* laptop : 1024px => 1440px */
 @media screen and (min-width: 1024px) and (max-width: 1440px) {
 }
+
 
 /* HTML: <div class="loader"></div> */
 .loaderContainer {

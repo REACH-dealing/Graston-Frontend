@@ -9,9 +9,9 @@ import NurseProfile from '../Profile/NurseProfile';
 function HomePage() {
   return (
     <div className='homePage'>
-      {/* <NurseProfile/> */}
+      <NurseProfile/>
       {/* <LoginPage/> */}
-      <PatientProfile/>
+      {/* <PatientProfile/> */}
     </div>
   )
 }

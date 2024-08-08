@@ -6,11 +6,11 @@ function ForgotPassword() {
   return (
     <div className="forgotPasswordContainer">
       <div className="forgotPasswordContainer__items">
-        <div className="mt-5 mb-3">
+        <div className="mt-4 mb-3">
           <img
             src="/assets/images/forgot password-03.png"
             alt="forgot password"
-            width={"150px"}
+            width={"182.8px"}
           />
         </div>
         <h4 className="forgotPasswordContainer__h4 mt-2 fw-bolder">
@@ -29,17 +29,16 @@ function ForgotPassword() {
             <div className="d-flex align-items-center justify-content-center forgotPasswordContainer__phoneCode">
               <img
                 src="/assets/images/Group 481318.png"
-                width={"30px"}
-                className="ms-3 mb-1"
+                width={"33.23px"}
+                className=""
                 alt="forgot password"
               />
-              <p className=" mt-2 ms-1 me-3" style={{ color: "#000" }}>
+              <p className="mb-1" style={{ color: "#646464", width: "38px" }}>
                 +966
               </p>
             </div>
             <div className="">
               <input
-                // type="number"
                 placeholder="Your Phone Number"
                 className="forgotPasswordContainer__phone "
               />

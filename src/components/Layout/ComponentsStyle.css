@@ -11,6 +11,7 @@
 /* NavBar style */
 .navbarContainer {
   font-family: var(--font-familyRoboto);
+  box-shadow: 2px 2px 2px 2px gray;
 }
 .nav {
   background-color: #fff;
@@ -55,7 +56,6 @@
 .not-active:focus {
   color: var(--main-color);
 }
-}
 .navbar-brand {
   font-family: Aref Ruqaa;
   color: #2f9c95;
@@ -76,7 +76,6 @@ button:focus {
   padding: 10px;
   border: none;
   border-radius: 5px;
-}
 }
 .navbar-brand:hover {
   color: #2f9c95;

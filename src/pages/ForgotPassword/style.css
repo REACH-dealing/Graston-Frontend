@@ -4,7 +4,13 @@
   --font-familyRoboto: "Roboto", sans-serif;
   --font-familyNotoNastaliqUrdu: Noto Nastaliq Urdu;
 }
+input::placeholder{
+  font-size: 16px;
+}
 /* forgot password (phone number) */
+.forgotPasswordContainer{
+  font-family: var(--font-familyRoboto);
+}
 .forgotPasswordContainer__h4{
   color: #2F9C95;
 }
@@ -89,9 +95,10 @@
   color: #2f9c95;
 }
 .VerifayPhoneContainer__inputs input {
-  width: 50px;
+  width: 77.68px;
+  height: 77.68;
   margin: 10px;
-  padding: 15px;
+  padding: 25px;
   border-radius: 16px;
   border: none;
   background-color: #f2f2f2;
@@ -114,7 +121,7 @@
   font-family: var(--font-familyRoboto);
 }
 .confirmCode button {
-  width: 500px;
+  width:390px;
 }
 
 /* verifay email */
@@ -125,9 +132,10 @@
   color: #2f9c95;
 }
 .verifayEmailContainer__inputs input {
-  width: 50px;
-  margin: 0px 15px 0px 15px;
-  padding: 15px;
+  width: 77.68px;
+  height: 77.68;
+  margin: 10px;
+  padding: 25px;
   border-radius: 16px;
   border: none;
   background-color: #f2f2f2;
@@ -136,8 +144,6 @@
   outline: none;
 }
 .verifayEmailContainer__items {
-  background-color: #fff;
-  border-radius: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
