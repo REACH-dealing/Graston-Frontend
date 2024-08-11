@@ -21,7 +21,7 @@ function LoginPage() {
   const validationSchema = Yup.object({
     email: Yup.string().email("Invalid email format").required("Required"),
     password: Yup.string()
-      .min(6, "Password must be at least 6 characters")
+      .min(8, "Password must be at least 8 characters")
       .required("Required"),
   });
 
@@ -36,6 +36,8 @@ function LoginPage() {
       });
       console.log(response);
       setLoading(false);
+      localStorage.setItem("access", response.data.access);
+      sessionStorage.setItem("access", response.data.access);
     } catch (error) {
       console.log(error.message);
       alert("Email or Password are incorrect");
@@ -85,12 +87,12 @@ function LoginPage() {
                     >
                       {passwordVisible ? <FaEye /> : <FaEyeSlash />}
                     </span>
-                    <ErrorMessage
-                      className="text-danger w-100"
-                      name="password"
-                      component="div"
-                    />
                   </div>
+                  <ErrorMessage
+                    className="text-danger w-100"
+                    name="password"
+                    component="div"
+                  />
                   <div className="d-flex justify-content-between align-self-start m-0">
                     <div className="m-0">
                       <p className="fw-bolder mt-2">

@@ -37,7 +37,17 @@ function RegisterAsPatient() {
     email: Yup.string().email("Invalid email format").required("Required"),
     password: Yup.string()
       .required("Required")
-      .min(6, "Password must be at least 6 characters"),
+      .min(8, "Password must be at least 8 characters")
+      .test(
+        "strong password",
+        "Your password is not strong enough",
+        (value) => {
+          const re = new RegExp(
+            "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
+          );
+          return re.test(value);
+        }
+      ),
     national_id: Yup.number()
       .required("required")
       .test(
@@ -101,8 +111,8 @@ function RegisterAsPatient() {
       navigate("/loginPage");
     } catch (error) {
       console.log(error.message);
-      console.log(error.response.data.user);
-      alert(handleErrors(error.response.data.user));
+      console.log(error.response.data.error);
+      alert(handleErrors(error.response.data.error));
     }
   };
 

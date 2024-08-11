@@ -1,11 +1,17 @@
-import { axiosInstance } from "../../utils/axiosInstance";
+import {
+  axiosInstance,
+  axiosInstanceWithAuth,
+} from "../../utils/axiosInstance";
 
 // Profile related end points
 
 // Change Email - end point
 export const changeEmailAPI = async (email) => {
   try {
-    const response = await axiosInstance.post(`/auth/change-email/`, email);
+    const response = await axiosInstanceWithAuth.post(
+      `/auth/change-email/`,
+      email
+    );
     return response.data;
   } catch (error) {
     console.error("Error Changing The Email", error);
@@ -17,7 +23,7 @@ export const changeEmailAPI = async (email) => {
 export const changePasswordAPI = async (passwords) => {
   // passwords = {  "current_password": "string", "new_password": "string"}
   try {
-    const response = await axiosInstance.post(
+    const response = await axiosInstanceWithAuth.post(
       `/auth/change-password/`,
       passwords
     );
@@ -45,7 +51,9 @@ export const checkPasswordAPI = async (password) => {
 // Delete Account - end point
 export const deleteAccountAPI = async (id) => {
   try {
-    const response = await axiosInstance.post(`/auth/delete-account/${id}`);
+    const response = await axiosInstanceWithAuth.post(
+      `/auth/delete-account/${id}`
+    );
     return response;
   } catch (error) {
     console.error("Error Deleting The Account", error);
@@ -69,7 +77,7 @@ export const reactivateAccountAPI = async (id) => {
 // Get Nurse Profile Date - end point
 export const getNurseData = async (id) => {
   try {
-    const response = await axiosInstance.get(`/auth/nurse/${id}`);
+    const response = await axiosInstanceWithAuth.get(`/auth/nurse/${id}`);
     return response;
   } catch (error) {
     console.error("Error Getting Nurses Profile Data", error);
@@ -81,7 +89,7 @@ export const getNurseData = async (id) => {
 export const deleteNurseWorkHours = async (id) => {
   // ID of the this work hour
   try {
-    const response = await axiosInstance.delete(
+    const response = await axiosInstanceWithAuth.delete(
       `/auth/delete-work-hours/${id}`
     );
     return response;
@@ -94,7 +102,9 @@ export const deleteNurseWorkHours = async (id) => {
 // Get Nurse List Of Work Hours - end point
 export const getNurseWorkHours = async () => {
   try {
-    const response = await axiosInstance.get(`/auth/nurse/list-work-hours/`);
+    const response = await axiosInstanceWithAuth.get(
+      `/auth/nurse/list-work-hours/`
+    );
     return response;
   } catch (error) {
     console.error("Error Getting Nurse List Of Work Hours", error);
@@ -106,7 +116,7 @@ export const getNurseWorkHours = async () => {
 export const addNurseWorkHours = async (DayWorkHours) => {
   // DayWorkHours = {"day": "SATURDAY", "start_time": "string", "end_time": "string"}
   try {
-    const response = await axiosInstance.post(
+    const response = await axiosInstanceWithAuth.post(
       `/auth/nurse/set-work-hours/`,
       DayWorkHours
     );
@@ -121,7 +131,7 @@ export const addNurseWorkHours = async (DayWorkHours) => {
 export const editNurseWorkHours = async (DayWorkHours) => {
   // DayWorkHours = {"day": "SATURDAY", "start_time": "string", "end_time": "string"}
   try {
-    const response = await axiosInstance.put(
+    const response = await axiosInstanceWithAuth.put(
       `/auth/nurse/update-work-hours/`,
       DayWorkHours
     );
@@ -135,9 +145,9 @@ export const editNurseWorkHours = async (DayWorkHours) => {
 // PATIENT Related End-points
 
 // Get Patient Profile Data - end point
-export const getPatientData = async (id) => {
+export const getPatientData = async () => {
   try {
-    const response = await axiosInstance.get(`/patient/${id}`);
+    const response = await axiosInstanceWithAuth.get(`/patient`);
     return response;
   } catch (error) {
     console.error("Error Getting Patient Profile Data", error);

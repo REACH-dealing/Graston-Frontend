@@ -530,3 +530,6 @@ select:not(.language) {
   width: 100%;
   box-shadow: 2px 2px 2px 2px lightgray;
 }
+.text-danger {
+  width: 100%;
+}
