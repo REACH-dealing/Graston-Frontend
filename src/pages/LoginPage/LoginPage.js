@@ -50,11 +50,11 @@ function LoginPage() {
     }
   };
 
-  const handleLogout = () => {
-    // const response = await logout();
-    // console.log(response);
-    const csrf = Cookies.get("access");
-    console.log(csrf);
+  const handleLogout = async () => {
+    const response = await logout();
+    console.log(response);
+    // const csrf = Cookies.get("access");
+    // console.log(csrf);
   };
 
   return (
