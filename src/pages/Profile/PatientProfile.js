@@ -24,15 +24,12 @@ function PatientProfile() {
         <div className="profileSettings mt-5">
           <div className="d-flex align-items-center justify-content-between">
             <div className="d-flex">
-              <img
-                src={require("/assets/svg/🦆 icon _person_.svg")}
-                alt="profile"
-              />
+              <img src="assets/svg/🦆 icon _person_.svg" alt="profile" />
               <p className="fw-bolder ms-3">Profile</p>
             </div>
           </div>
           <div className="d-flex align-items-center">
-            <img src="/assets/svg/Vector.svg" alt="fav" />
+            <img src="assets/svg/Vector.svg" alt="fav" />
             <p className="mt-3 ms-3 fw-bolder">Favorites</p>
           </div>
           <div className="d-flex align-items-center">

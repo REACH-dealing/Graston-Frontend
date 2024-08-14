@@ -21,7 +21,7 @@ export const axiosInstanceWithAuth = axios.create({
   withCredentials: true,
   headers: {
     "Content-Type": "application/json",
-    // Authorization: `${localStorage.getItem("access")}`,
+    Authorization: `${localStorage.getItem("access")}`,
     // "X-CSRFToken": getCSRFToken(),
   },
 });
