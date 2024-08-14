@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/REACH-dealing/Graston-Frontend/static/css/main.7e0b7b25.css",
+    "main.js": "/REACH-dealing/Graston-Frontend/static/js/main.c87d0c1e.js",
+    "static/js/453.e0b90b9f.chunk.js": "/REACH-dealing/Graston-Frontend/static/js/453.e0b90b9f.chunk.js",
+    "index.html": "/REACH-dealing/Graston-Frontend/index.html",
+    "main.7e0b7b25.css.map": "/REACH-dealing/Graston-Frontend/static/css/main.7e0b7b25.css.map",
+    "main.c87d0c1e.js.map": "/REACH-dealing/Graston-Frontend/static/js/main.c87d0c1e.js.map",
+    "453.e0b90b9f.chunk.js.map": "/REACH-dealing/Graston-Frontend/static/js/453.e0b90b9f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7e0b7b25.css",
+    "static/js/main.c87d0c1e.js"
+  ]
+}
