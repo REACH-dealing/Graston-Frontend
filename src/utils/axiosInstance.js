@@ -22,6 +22,7 @@ export const axiosInstanceWithAuth = axios.create({
   headers: {
     "Content-Type": "application/json",
     Authorization: `${localStorage.getItem("access")}`,
+    // commit
     // "X-CSRFToken": getCSRFToken(),
   },
 });
