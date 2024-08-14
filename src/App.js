@@ -46,7 +46,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/Graston-Frontend" element={<HomePage />} />
           <Route path="/LoginPage" element={<LoginPage />} />
           <Route path="/RegisterPage" element={<RegisterPage />} />
           <Route path="/RegisterAsPatient" element={<RegisterAsPatient />} />
