@@ -1,4 +1,7 @@
-import { axiosInstance } from "../../utils/axiosInstance";
+import {
+  axiosInstance,
+  axiosInstanceWithAuth,
+} from "../../utils/axiosInstance";
 
 // User related end points
 
@@ -41,7 +44,7 @@ export const registerNurseApi = async (newUser) => {
 // logout - end point
 export const logout = async () => {
   try {
-    const response = await axiosInstance.post("/auth/logout");
+    const response = await axiosInstanceWithAuth.post("/auth/logout");
     return response.data;
   } catch (error) {
     console.log("Error logging out", error.message);

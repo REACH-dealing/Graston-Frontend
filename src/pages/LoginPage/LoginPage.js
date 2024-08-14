@@ -4,10 +4,13 @@ import { Button } from "react-bootstrap";
 import MintButton from "../../Common/MintButton";
 import LightBtn from "../../Common/LightBtn";
 import { Link } from "react-router-dom";
-import { loginApi } from "../../api/userApi/authApi";
+import { loginApi, logout } from "../../api/userApi/authApi";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { getPatientData } from "../../api/userApi/profileApi";
+import { Cookie } from "@mui/icons-material";
+import Cookies from "js-cookie";
 
 function LoginPage() {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -37,12 +40,21 @@ function LoginPage() {
       console.log(response);
       setLoading(false);
       localStorage.setItem("access", response.data.access);
-      sessionStorage.setItem("access", response.data.access);
+      console.log(response.data.access);
+      // console.log(document.cookie);
+      // sessionStorage.setItem("access", response.data.access);
     } catch (error) {
       console.log(error.message);
       alert("Email or Password are incorrect");
       setLoading(false);
     }
+  };
+
+  const handleLogout = () => {
+    // const response = await logout();
+    // console.log(response);
+    const csrf = Cookies.get("access");
+    console.log(csrf);
   };
 
   return (
@@ -121,11 +133,11 @@ function LoginPage() {
           <p className="text-center fw-lighter mt-5">
             Enter your personal details and start journey with us{" "}
           </p>
-          <Link to={"/RegisterPage"} className="mt-4">
-            <div className="loginBtn">
-              <LightBtn text={"Register"} />
-            </div>
-          </Link>
+          {/* <Link to={"/RegisterPage"} className="mt-4"> */}
+          <div className="loginBtn">
+            <MintButton text={"Register"} onClick={handleLogout} />
+          </div>
+          {/* </Link> */}
         </div>
       </div>
     </div>

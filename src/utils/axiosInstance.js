@@ -6,10 +6,11 @@ import axios from "axios";
 export const axiosInstance = axios.create({
   baseURL: `https://graston-backend-production.up.railway.app`,
   timeout: 10000,
-  // withCredentials: true,
+  withCredentials: true,
   headers: {
     "Content-Type": "application/json",
-    Authorization: `${localStorage.getItem("access")}`,
+    // Authorization: `${localStorage.getItem("access")}`,
+    // "X-CSRFToken": `${getCSRFToken()}`,
   },
 });
 
@@ -17,9 +18,10 @@ export const axiosInstance = axios.create({
 export const axiosInstanceWithAuth = axios.create({
   baseURL: `https://graston-backend-production.up.railway.app`,
   timeout: 10000,
-  // withCredentials: true,
+  withCredentials: true,
   headers: {
     "Content-Type": "application/json",
     Authorization: `${localStorage.getItem("access")}`,
+    // "X-CSRFToken": getCSRFToken(),
   },
 });
