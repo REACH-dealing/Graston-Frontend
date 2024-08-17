@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Graston-Frontend/static/css/main.7e0b7b25.css",
+    "main.js": "/Graston-Frontend/static/js/main.c599cf69.js",
+    "static/js/453.e0b90b9f.chunk.js": "/Graston-Frontend/static/js/453.e0b90b9f.chunk.js",
+    "index.html": "/Graston-Frontend/index.html",
+    "main.7e0b7b25.css.map": "/Graston-Frontend/static/css/main.7e0b7b25.css.map",
+    "main.c599cf69.js.map": "/Graston-Frontend/static/js/main.c599cf69.js.map",
+    "453.e0b90b9f.chunk.js.map": "/Graston-Frontend/static/js/453.e0b90b9f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7e0b7b25.css",
+    "static/js/main.c599cf69.js"
+  ]
+}
